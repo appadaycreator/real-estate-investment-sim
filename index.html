@@ -119,10 +119,10 @@
 <meta name="twitter:image" content="https://appadaycreator.com/twitter-card.png">
 <meta name="twitter:site" content="@appadaycreator">
 </head>
-<body class="font-sans">
+<body class="font-sans"><a href="#main" class="sr-only">本文へスキップ</a>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div class="max-w-lg mx-auto px-4 py-10">
+<div role="main" id="main" class="max-w-lg mx-auto px-4 py-10">
 
   <div class="text-center mb-8">
     <div class="text-6xl mb-4">🏢</div>
@@ -135,23 +135,23 @@
     <div class="space-y-4">
       <div>
         <label for="price">物件価格（万円）</label>
-        <input type="number" id="price" class="input-field" placeholder="例: 2500" min="0">
+        <input type="number" id="price" class="input-field" placeholder="例: 2500" min="0" aria-label="例: 2500">
       </div>
       <div>
         <label for="rent">想定家賃収入（月額・万円）</label>
-        <input type="number" id="rent" class="input-field" placeholder="例: 8" min="0" step="0.1">
+        <input type="number" id="rent" class="input-field" placeholder="例: 8" min="0" step="0.1" aria-label="例: 8">
       </div>
       <div>
         <label for="loan">ローン返済額（月額・万円）</label>
-        <input type="number" id="loan" class="input-field" placeholder="例: 6 （自己資金購入の場合は0）" min="0" step="0.1">
+        <input type="number" id="loan" class="input-field" placeholder="例: 6 （自己資金購入の場合は0）" min="0" step="0.1" aria-label="例: 6 （自己資金購入の場合は0）">
       </div>
       <div>
         <label for="running">月間維持費（管理費・修繕積立金・万円）</label>
-        <input type="number" id="running" class="input-field" placeholder="例: 1.5" min="0" step="0.1">
+        <input type="number" id="running" class="input-field" placeholder="例: 1.5" min="0" step="0.1" aria-label="例: 1.5">
       </div>
       <div>
         <label for="vacancy">想定空室率（%）</label>
-        <input type="number" id="vacancy" class="input-field" placeholder="例: 5" min="0" max="100">
+        <input type="number" id="vacancy" class="input-field" placeholder="例: 5" min="0" max="100" aria-label="例: 5">
       </div>
     </div>
     <button class="btn-primary mt-5" onclick="calculate()">利回りを計算する →</button>
