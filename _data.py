@@ -1,0 +1,20 @@
+LEGACY_HTML = True  # 既存HTMLを保持（再アセンブル禁止）
+TITLE = '不動産投資計算【無料】利回り・キャッシュフローをシミュレーション'
+DESCRIPTION = '物件価格・家賃・諸経費を入力して表面・実質利回りと月間CF を無料計算。投資判断に活用。'
+JS_CODE = "function calculate() {\n  var price = parseFloat(document.getElementById('price').value) || 0;\n  var rent = parseFloat(document.getElementById('rent').value) || 0;\n  var loan = parseFloat(document.getElementById('loan').value) || 0;\n  var running = parseFloat(document.getElementById('running').value) || 0;\n  var vacancy = parseFloat(document.getElementById('vacancy').value) || 5;\n\n  if(price <= 0 || rent <= 0) {\n    alert('物件価格と家賃収入を入力してください');\n    return;\n  }\n\n  var annualRent = rent * 12 * 10000;\n  var priceYen = price * 10000;\n  var grossYield = (annualRent / priceYen * 100).toFixed(2);\n\n  var adjustedMonthlyRent = rent * (1 - vacancy/100) * 10000;\n  var monthlyExpense = (loan + running) * 10000;\n  var monthlyCF = adjustedMonthlyRent - monthlyExpense;\n  var annualCF = monthlyCF * 12;\n  var annualNetIncome = adjustedMonthlyRent * 12 - running * 10000 * 12;\n  var netYield = (annualNetIncome / priceYen * 100).toFixed(2);\n  var payback = annualCF > 0 ? (priceYen / annualCF).toFixed(1) + '年' : '計算不可（CF赤字）';\n\n  document.getElementById('r-gross').textContent = grossYield + '%';\n  document.getElementById('r-net').textContent = netYield + '%';\n  document.getElementById('r-monthly-cf').textContent = (monthlyCF >= 0 ? '+' : '') + Math.round(monthlyCF/10000*10)/10 + '万円';\n  document.getElementById('r-monthly-cf').style.color = monthlyCF >= 0 ? '#059669' : '#dc2626';\n  document.getElementById('r-annual-cf').textContent = (annualCF >= 0 ? '+' : '') + Math.round(annualCF/10000) + '万円';\n  document.getElementById('r-annual-cf').style.color = annualCF >= 0 ? '#059669' : '#dc2626';\n  document.getElementById('r-rent-adj').textContent = Math.round(adjustedMonthlyRent/10000*10)/10 + '万円';\n  document.getElementById('r-expense').textContent = Math.round(monthlyExpense/10000*10)/10 + '万円';\n  document.getElementById('r-payback').textContent = payback;\n\n  var judgeEl = document.getElementById('r-judge');\n  var netY = parseFloat(netYield);\n  if(netY >= 8) {\n    judgeEl.className = 'text-sm p-3 rounded-lg bg-green-50 text-green-800';\n    judgeEl.textContent = '✅ 優良物件の水準（実質利回り8%以上）。積極的に検討する価値があります。';\n  } else if(netY >= 5) {\n    judgeEl.className = 'text-sm p-3 rounded-lg bg-yellow-50 text-yellow-800';\n    judgeEl.textContent = '⚠️ 標準的な利回り。立地・築年数・将来の修繕コストを慎重に確認しましょう。';\n  } else {\n    judgeEl.className = 'text-sm p-3 rounded-lg bg-red-50 text-red-800';\n    judgeEl.textContent = '❌ 利回りが低めです。物件価格の交渉や家賃アップの余地を検討してください。';\n  }\n\n  document.getElementById('results').style.display = 'block';\n  document.getElementById('affiliate-section').style.display = 'block';\n  document.getElementById('results').scrollIntoView({ behavior: 'smooth' });\n}"
+MAIN_HTML = '<div><button class="btn">開始する</button></div>'
+FAQ = [
+    ('不動産投資計算は無料で使えますか？', 'はい、完全無料・登録不要でご利用いただけます。'),
+    ('何回でも使えますか？', 'はい、回数制限なく何度でもご利用いただけます。'),
+    ('入力したデータはサーバーに送信されますか？', 'いいえ。すべての処理はブラウザ内で完結し、入力内容はサーバーへ送信されません。'),
+    ('スマートフォンでも使えますか？', 'はい、スマートフォン・タブレット・PCすべてに最適化されています。'),
+    ('結果を保存・共有できますか？', 'スクリーンショットでの保存またはSNSシェアボタンからご共有いただけます。'),
+]
+HOW_TO = [
+    'ページを開き、入力フォームの項目を確認する',
+    '必要な情報を入力または選択する',
+    '実行ボタンをクリックして結果を取得する',
+    '表示された結果・アドバイスを確認する',
+    '必要に応じてコピー・SNSシェアで活用する',
+]
+FOOTER_LINKS = [('https://appadaycreator.com/sleep-quality-checker/', '睡眠の質チェッカー'), ('https://appadaycreator.com/bmi-body-tracker/', 'BMI・体重管理'), ('https://appadaycreator.com/household-budget-analyzer/', '家計簿診断')]
