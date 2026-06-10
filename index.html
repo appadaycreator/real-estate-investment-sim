@@ -313,7 +313,8 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
 <h2 class="font-bold text-gray-800 mb-4">📊 物件情報を入力</h2>
     <div class="card p-4 mb-6" style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px">
       <h3 class="font-bold text-blue-800 mb-3">🎯 投資目標の設定（任意）</h3>
-      <p class="text-sm text-blue-700 mb-3">目標値を設定すると、計算結果との達成状況が表示されます</p>
+      <p class="text-sm text-blue-700 mb-1">目標値を設定すると、計算結果との達成状況がプログレスバーで表示されます。</p>
+      <p class="text-xs text-blue-600 mb-3"><strong>目安:</strong> 利回り 6-8%、月間CF 5-10万円/月。物件選定の判断材料にご活用ください。</p>
       <div class="grid grid-cols-2 gap-3">
         <div>
           <label for="target-yield" class="text-xs font-600 text-gray-700 mb-2 block">目標実質利回り（%）</label>
@@ -427,6 +428,36 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         <div class="metric-value" id="r-roi">0%</div>
       </div>
     </div>
+    <div id="target-achievement" class="grid grid-cols-1 gap-3 mb-4" style="display:none;">
+      <div id="target-yield-achievement" class="bg-blue-50 border border-blue-200 rounded-lg p-3" style="display:none;">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-600 text-gray-700">🎯 目標実質利回り</span>
+          <span class="text-sm font-bold text-blue-800" id="target-yield-status"></span>
+        </div>
+        <div style="background:#e0f2fe;border-radius:8px;height:24px;overflow:hidden;border:1px solid #bae6fd">
+          <div id="target-yield-bar" style="height:100%;background:#0284c7;width:0%;transition:width 0.3s ease;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:600"></div>
+        </div>
+        <div class="flex justify-between text-xs text-gray-600 mt-1">
+          <span id="target-yield-actual"></span>
+          <span id="target-yield-target"></span>
+        </div>
+      </div>
+
+      <div id="target-cf-achievement" class="bg-green-50 border border-green-200 rounded-lg p-3" style="display:none;">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-600 text-gray-700">🎯 目標月間CF</span>
+          <span class="text-sm font-bold text-green-800" id="target-cf-status"></span>
+        </div>
+        <div style="background:#dcfce7;border-radius:8px;height:24px;overflow:hidden;border:1px solid #86efac">
+          <div id="target-cf-bar" style="height:100%;background:#22c55e;width:0%;transition:width 0.3s ease;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:600"></div>
+        </div>
+        <div class="flex justify-between text-xs text-gray-600 mt-1">
+          <span id="target-cf-actual"></span>
+          <span id="target-cf-target"></span>
+        </div>
+      </div>
+    </div>
+
     <div style="margin:2rem 0;padding:1.5rem;background:#f9fafb;border-radius:12px;border:1px solid #e5e7eb">
       <h3 class="text-sm font-bold text-gray-700 mb-3">📊 利回り比較グラフ</h3>
       <canvas id="yield-chart" height="80"></canvas>
@@ -437,39 +468,6 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       <div class="flex justify-between text-sm"><span class="text-gray-600">投資回収の目安</span><span class="font-bold" id="r-payback"></span></div>
     </div>
     <div class="text-sm p-3 rounded-lg" id="r-judge"></div>
-
-    <div id="target-achievement" class="mt-4 pt-4 border-t border-gray-200" style="display:none;">
-      <h3 class="font-bold text-blue-800 mb-3">🎯 投資目標の達成状況</h3>
-      <div class="grid grid-cols-1 gap-3">
-        <div id="target-yield-achievement" class="bg-blue-50 border border-blue-200 rounded-lg p-3" style="display:none;">
-          <div class="flex justify-between items-center mb-2">
-            <span class="text-sm font-600 text-gray-700">目標実質利回り</span>
-            <span class="text-sm font-bold text-blue-800" id="target-yield-status"></span>
-          </div>
-          <div style="background:#e0f2fe;border-radius:8px;height:24px;overflow:hidden;border:1px solid #bae6fd">
-            <div id="target-yield-bar" style="height:100%;background:#0284c7;width:0%;transition:width 0.3s ease;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:600"></div>
-          </div>
-          <div class="flex justify-between text-xs text-gray-600 mt-1">
-            <span id="target-yield-actual"></span>
-            <span id="target-yield-target"></span>
-          </div>
-        </div>
-
-        <div id="target-cf-achievement" class="bg-green-50 border border-green-200 rounded-lg p-3" style="display:none;">
-          <div class="flex justify-between items-center mb-2">
-            <span class="text-sm font-600 text-gray-700">目標月間CF</span>
-            <span class="text-sm font-bold text-green-800" id="target-cf-status"></span>
-          </div>
-          <div style="background:#dcfce7;border-radius:8px;height:24px;overflow:hidden;border:1px solid #86efac">
-            <div id="target-cf-bar" style="height:100%;background:#22c55e;width:0%;transition:width 0.3s ease;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:600"></div>
-          </div>
-          <div class="flex justify-between text-xs text-gray-600 mt-1">
-            <span id="target-cf-actual"></span>
-            <span id="target-cf-target"></span>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="mt-4 pt-4 border-t border-gray-200">
       <button class="btn-reset" style="width:100%;margin-bottom:1rem;" onclick="saveResult()" aria-label="結果を保存">💾 この結果を保存して比較</button>
@@ -531,6 +529,28 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         <a href="https://px.a8.net/svt/ejp?a8mat=4AX38J+38R9WQ+3M0+2N9S82" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-flex;align-items:center;padding:8px 14px;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;font-size:13px;color:#334155;text-decoration:none;white-space:nowrap;">Goomies DVD</a><img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4AX38J+38R9WQ+3M0+2N9S82" alt="">
         <a href="https://px.a8.net/svt/ejp?a8mat=4B3WJ6+FQ9JMY+1LP8+BY642" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-flex;align-items:center;padding:8px 14px;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;font-size:13px;color:#334155;text-decoration:none;white-space:nowrap;">日々の生活にハッピーをプラス！《ハピタス》</a><img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4B3WJ6+FQ9JMY+1LP8+BY642" alt="">
       </div>
+    </div>
+  </div>
+
+  <div class="card p-6 mb-4">
+    <h2 class="font-bold text-gray-800 mb-4">🛠 こんなツールも人気</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <a href="https://appadaycreator.com/bmi-body-tracker/" style="padding:1rem;background:#f0fdf4;border:1px solid #a7f3d0;border-radius:8px;text-decoration:none;color:#1f2937;transition:background 0.2s">
+        <div class="font-bold text-gray-800">⚖️ BMI・体重管理</div>
+        <p style="font-size:.8rem;color:#6b7280;margin-top:.25rem">標準体重・BMI・体脂肪率を自動計算・管理</p>
+      </a>
+      <a href="https://appadaycreator.com/household-budget-analyzer/" style="padding:1rem;background:#f0fdf4;border:1px solid #a7f3d0;border-radius:8px;text-decoration:none;color:#1f2937;transition:background 0.2s">
+        <div class="font-bold text-gray-800">💰 家計簿診断</div>
+        <p style="font-size:.8rem;color:#6b7280;margin-top:.25rem">毎月の収支・貯蓄率を診断・改善提案</p>
+      </a>
+      <a href="https://appadaycreator.com/sleep-quality-checker/" style="padding:1rem;background:#f0fdf4;border:1px solid #a7f3d0;border-radius:8px;text-decoration:none;color:#1f2937;transition:background 0.2s">
+        <div class="font-bold text-gray-800">😴 睡眠の質チェッカー</div>
+        <p style="font-size:.8rem;color:#6b7280;margin-top:.25rem">睡眠スコア・改善アドバイスを獲得</p>
+      </a>
+      <a href="https://appadaycreator.com/category/finance/" style="padding:1rem;background:#f0fdf4;border:1px solid #a7f3d0;border-radius:8px;text-decoration:none;color:#1f2937;transition:background 0.2s">
+        <div class="font-bold text-gray-800">📊 その他の計算機</div>
+        <p style="font-size:.8rem;color:#6b7280;margin-top:.25rem">150+の無料ツール・診断サービス</p>
+      </a>
     </div>
   </div>
 
@@ -916,12 +936,15 @@ function displayComparison() {
       if (targetYield > 0) {
         const achievementRate = (item.netYield / targetYield) * 100;
         let badge = "🟢 " + achievementRate.toFixed(0) + "%";
+        let bgColor = "#f0fdf4";
         if (achievementRate >= 100) {
           badge = "✅ 達成";
+          bgColor = "#dcfce7";
         } else if (achievementRate >= 80) {
           badge = "🟡 " + achievementRate.toFixed(0) + "%";
+          bgColor = "#fef3c7";
         }
-        tableHtml += "<td style='border:1px solid #e5e7eb;padding:.5rem;text-align:center;font-size:.75rem;font-weight:600'>" + badge + "</td>";
+        tableHtml += "<td style='border:1px solid #e5e7eb;padding:.5rem;text-align:center;font-size:.75rem;font-weight:600;background:" + bgColor + "'>" + badge + "</td>";
       }
       tableHtml += "<td style='border:1px solid #e5e7eb;padding:.5rem;text-align:center'><button onclick='removeSaved(" + item.id + ")' style='background:#f3f4f6;border:1px solid #d1d5db;padding:.25rem .5rem;border-radius:.375rem;cursor:pointer;font-size:.75rem'>削除</button></td>";
       tableHtml += "</tr>";
