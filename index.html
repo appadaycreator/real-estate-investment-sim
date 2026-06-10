@@ -7,6 +7,8 @@ new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,"script","dataLayer","GTM-TXQGZRF9");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDPNYD2875"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZDPNYD2875',{send_page_view:false});</script>
 <!-- End Google Tag Manager -->
 <!-- phase8-schema-enhanced -->
 <meta charset="UTF-8">
@@ -17,20 +19,22 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#7c3aed">
-<meta name="description" content="物件価格・家賃・諸経費を入力して表面・実質利回りと月間CF を無料計算。投資判断に活用。登録不要・完全無料でご利用いただけます。スマホ・PC対応。">
+<meta name="description" content="不動産投資の利回り・キャッシュフローを無料でシミュレーション。物件価格・家賃・ローン返済・維持費から表面利回り・実質利回り・月間CF・投資回収期間を即計算。複数物件の比較分析で投資判断をサポートする無料ツール。">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <meta property="og:title" content="不動産投資計算【無料】利回り・キャッシュフローをシミュレーション">
-<meta property="og:description" content="物件価格・家賃・諸費用から利回り・月間CF・投資回収年数を即計算。">
+<meta property="og:description" content="物件価格・家賃・ローン返済・維持費を入力するだけで、表面利回り・実質利回り・月間キャッシュフロー・投資回収期間が即座に計算できます。不動産投資の判断に活用できる無料シミュレーターです。">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP" />
 <meta property="og:url" content="https://appadaycreator.com/real-estate-investment-sim/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427583028015858" crossorigin="anonymous"></script>
-<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","s3t9vl8h3v");</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  body { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #6ee7b7 100%); min-height: 100vh; }
+  body { background: #f8fafc; min-height: 100vh; }
   .card { background: white; border-radius: 1rem; box-shadow: 0 4px 24px rgba(0,0,0,0.09); }
   .btn-primary { background: #059669; color: white; border: none; border-radius: 0.75rem; padding: 0.875rem 2rem; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.2s; width: 100%; display: block; }
   .btn-primary:hover { background: #047857; transform: translateY(-1px); }
+  .btn-reset { background: #f3f4f6; color: #6b7280; border: none; border-radius: 0.75rem; padding: 0.75rem 2rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s; width: 100%; display: block; }
+  .btn-reset:hover { background: #e5e7eb; }
   .input-field { border: 2px solid #d1fae5; border-radius: 0.75rem; padding: 0.75rem 1rem; font-size: 1rem; width: 100%; transition: border-color 0.2s; box-sizing: border-box; }
   .input-field:focus { outline: none; border-color: #059669; }
   label { display: block; font-size: 0.875rem; font-weight: 600; color: #374151; margin-bottom: 0.375rem; }
@@ -38,16 +42,26 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .metric-box.highlight { background: #059669; border-color: #059669; color: white; }
   .metric-label { font-size: 0.75rem; color: #6b7280; margin-bottom: 0.25rem; }
   .metric-value { font-size: 1.5rem; font-weight: 700; color: #059669; }
+  .metric-value.cf-positive { color: #059669; }
+  .metric-value.cf-negative { color: #dc2626; }
   .metric-box.highlight .metric-label { color: #d1fae5; }
   .metric-box.highlight .metric-value { color: white; }
 
 /* Phase 8: Mobile Optimization */
 input, select, textarea { font-size: 16px !important; }
-button, .btn, .btn-primary, .option-btn, [role="button"] { min-height: 48px; min-width: 48px; touch-action: manipulation; }
+button, .btn, .btn-primary, .btn-reset, .option-btn, [role="button"] { min-height: 48px; min-width: 48px; touch-action: manipulation; }
 @media (max-width: 640px) {
   body { font-size: 16px; }
   .max-w-lg { padding-left: 1rem; padding-right: 1rem; }
 }
+
+/* ツールチップスタイル */
+.tooltip-container { position: relative; display: inline-block; cursor: help; }
+.tooltip-icon { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: #059669; color: white; text-align: center; line-height: 18px; font-size: 12px; font-weight: bold; margin-left: 4px; vertical-align: middle; }
+.tooltip-text { visibility: hidden; width: 280px; background-color: #1f2937; color: white; text-align: left; padding: 12px 14px; border-radius: 8px; position: absolute; z-index: 100; bottom: 125%; left: 50%; margin-left: -140px; opacity: 0; transition: opacity 0.3s; font-size: 0.85rem; line-height: 1.6; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+.tooltip-text::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px; border-width: 5px 5px 0 5px; border-style: solid; border-color: #1f2937 transparent transparent transparent; }
+.tooltip-container:hover .tooltip-text { visibility: visible; opacity: 1; }
+@media (max-width: 640px) { .tooltip-text { width: 240px; margin-left: -120px; bottom: auto; top: 30px; } .tooltip-text::after { bottom: 100%; top: auto; } }
 
 @media print{
   header,footer,nav,button,.no-print,
@@ -65,12 +79,69 @@ button, .btn, .btn-primary, .option-btn, [role="button"] { min-height: 48px; min
 /* AdSense unfilled: collapse empty ad slots */
 ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!important;height:0!important}
 </style>
-    <link rel="canonical" href="https://appadaycreator.com/real-estate-investment-sim/">
+<link rel="canonical" href="https://appadaycreator.com/real-estate-investment-sim/">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"このサービスは何ですか？","acceptedAnswer":{"@type":"Answer","text":"無料の診断ツールです。簡単な質問にお答えいただくだけで、最適なアドバイスを提供します。"}},{"@type":"Question","name":"料金はかかりますか？","acceptedAnswer":{"@type":"Answer","text":"完全無料です。登録や会員登録も不要。いますぐお試しいただけます。"}},{"@type":"Question","name":"個人情報は保護されますか？","acceptedAnswer":{"@type":"Answer","text":"はい。お客様の個人情報は厳重に管理され、第三者と共有されることはありません。"}},{"@type":"Question","name":"計算結果は実際の金融商品に使えますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは参考情報の提供を目的としており、実際の投資・融資判断には専門家（ファイナンシャルプランナー等）にご相談ください。"}},{"@type":"Question","name":"入力した金額データはどこかに送られますか？","acceptedAnswer":{"@type":"Answer","text":"すべての計算はブラウザ内で完結します。サーバーへのデータ送信は一切行いません。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"不動産投資計算は無料で使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい、完全無料・登録不要でご利用いただけます。"}},{"@type":"Question","name":"表面利回りと実質利回りの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"表面利回りは年間家賃収入÷物件価格×100%で、諸経費を考慮しません。実質利回りはローン返済・維持費・空室を差し引いた年間CFから算出するため、投資判断に適しています。"}},{"@type":"Question","name":"入力したデータはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべての処理はブラウザ内で完結し、入力内容はサーバーへ送信されません。前回の入力値はブラウザのlocalStorageに保存されます。"}},{"@type":"Question","name":"計算結果は実際の投資判断に使えますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは参考情報の提供を目的としています。実際の投資・融資判断には不動産会社・ファイナンシャルプランナー等の専門家にご相談ください。"}},{"@type":"Question","name":"スマートフォンでも使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい、スマートフォン・タブレット・PCすべてに最適化されています。"}}]}
 </script>
 <script type="application/ld+json">
-
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "不動産投資利回りシミュレーション",
+  "description": "物件情報を入力してシミュレーターで利回りとキャッシュフローを計算する方法",
+  "image": "https://appadaycreator.com/real-estate-investment-sim/ogp.png",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "物件価格を入力する",
+      "description": "購入予定の物件価格を万円単位で入力してください",
+      "itemListElement": [{"@type": "HowToDirection", "text": "「物件価格（万円）」欄に金額を入力"}]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "想定家賃収入を入力する",
+      "description": "月額の想定家賃収入を万円単位で入力します",
+      "itemListElement": [{"@type": "HowToDirection", "text": "「想定家賃収入（月額・万円）」欄に月間家賃を入力"}]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "ローン返済額を入力する",
+      "description": "月額のローン返済額を万円単位で入力します（自己資金購入の場合は0）",
+      "itemListElement": [{"@type": "HowToDirection", "text": "「ローン返済額（月額・万円）」欄に月間返済額を入力"}]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "月間維持費を入力する",
+      "description": "管理費・修繕積立金などの月間維持費を万円単位で入力します",
+      "itemListElement": [{"@type": "HowToDirection", "text": "「月間維持費」欄に合計金額を入力"}]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "想定空室率を入力する",
+      "description": "想定される空室率をパーセンテージで入力します",
+      "itemListElement": [{"@type": "HowToDirection", "text": "「想定空室率（%）」欄に数値を入力（0～100）"}]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "計算ボタンを押す",
+      "description": "「利回りを計算する」ボタンをクリックします",
+      "itemListElement": [{"@type": "HowToDirection", "text": "ボタンをクリックして計算を実行"}]
+    },
+    {
+      "@type": "HowToStep",
+      "position": 7,
+      "name": "計算結果を確認する",
+      "description": "表面利回り・実質利回り・月間キャッシュフロー・投資回収期間などの結果を確認できます",
+      "itemListElement": [{"@type": "HowToDirection", "text": "「シミュレーション結果」で詳細データを確認し、投資判断に活用"}]
+    }
+  ]
+}
 </script>
 <script type="application/ld+json">
 {
@@ -98,7 +169,7 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
     "headline": "不動産投資計算【無料】利回り・キャッシュフローをシミュレーション",
     "description": "物件価格・家賃・諸経費を入力して表面・実質利回りと月間CF を無料計算。投資判断に活用。",
     "datePublished": "2026-05-23",
-    "dateModified": "2026-05-23",
+    "dateModified": "2026-06-06",
     "author": {
       "@type": "Organization",
       "name": "appadaycreator"
@@ -116,7 +187,7 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
 </script>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="不動産投資計算【無料】利回り・キャッシュフローをシミュレーション">
-<meta name="twitter:description" content="簡単な質問に答えるだけで、最適なアドバイスを提供します。">
+<meta name="twitter:description" content="物件価格・家賃を入力するだけで表面利回り・実質利回り・月間CFを瞬時に計算。不動産投資の判断に活用。">
 <meta name="twitter:image" content="https://appadaycreator.com/real-estate-investment-sim/ogp.png">
 <meta name="twitter:site" content="@appadaycreator">
 
@@ -124,11 +195,21 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
 @media(max-width:480px){button,[class*=btn]{min-height:48px!important;font-size:15px!important;}input,select,textarea{font-size:16px!important;min-height:44px!important;}[class*=card],[class*=max-w]{padding:16px!important;}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://appadaycreator.com/"},{"@type":"ListItem","position":2,"name":"計算機/お金","item":"https://appadaycreator.com/category/finance/"},{"@type":"ListItem","position":3,"name":"不動産投資計算利回り・キャッシュフローをシミュレーション","item":"https://appadaycreator.com/real-estate-investment-sim/"}]}</script>
+<script src="https://www.clarity.ms/tag/s3t9vl8h3v" async></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "不動産投資計算【無料】利回り・キャッシュフローをシミュレーション", "url": "https://appadaycreator.com/real-estate-investment-sim/", "description": "不動産投資の利回り・キャッシュフローを無料でシミュレーション。物件価格・家賃・ローン返済・維持費から表面利回り・実質利回り・月間CF・投資回収期間を即計算。複数物件の比較分析で投資判断をサポートする無料ツール。", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "provider": {"@type": "Organization", "name": "AppADayCreator", "url": "https://appadaycreator.com/"}}</script>
 </head>
-<body class="font-sans"><a href="#main" class="sr-only">本文へスキップ</a>
+<body class="font-sans">
+<div style="background:#4338ca;padding:5px 12px;text-align:right;font-size:.78rem"><a href="/blog/" style="color:#c7d2fe;text-decoration:none;font-weight:600">📖 コラム</a>&nbsp;｜&nbsp;<a href="/" style="color:#c7d2fe;text-decoration:none">ホーム</a></div>
+<!-- r21-breadcrumb -->
+<nav aria-label="パンくずリスト" style="background:#f8fafc;border-bottom:1px solid #e2e8f0;padding:5px 16px;font-size:.78rem;color:#6b7280;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">
+  <a href="/" style="color:#4f46e5;text-decoration:none">ホーム</a>
+  <span style="margin:0 .35rem;color:#9ca3af">›</span>
+  <span style="color:#374151">不動産投資計算【無料】利回り・キャッシュフローをシミュレーション</span>
+</nav>
+<a href="#main" class="sr-only">本文へスキップ</a>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div role="main" id="main" class="max-w-lg mx-auto px-4 py-10">
+<div role="main" id="main" class="max-w-2xl mx-auto px-4 py-10">
 
   <div class="text-center mb-8">
     <div class="text-6xl mb-4">🏢</div>
@@ -137,35 +218,179 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
   </div>
 
   <div class="card p-6 mb-6">
-    <h2 class="font-bold text-gray-800 mb-4">📊 物件情報を入力</h2>
+    <div id="tool-desc-box" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:1.5rem 1.75rem;margin:1.5rem 0">
+  <p style="color:#374151;margin:0 0 .75rem;line-height:1.75;font-size:.92rem">不動産投資計算【無料】利回り・キャッシュフローをシミュレーションは、AppADayCreatorが提供する完全無料の無料ツールです。登録・ログイン不要で、すぐにご利用いただけます。</p>
+  <p style="color:#374151;margin:0 0 .75rem;line-height:1.75;font-size:.92rem">【使い方】①必要な情報を入力 → ②ボタンをクリック → ③結果・アドバイスを確認してください。</p>
+  <p style="color:#4b5563;margin:0;line-height:1.75;font-size:.9rem">当ツールで入力したデータはお使いのブラウザ内にのみ保存され、外部サーバーへ送信されることはありません。安心してご利用ください。</p>
+</div>
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:1.5rem 1.75rem;margin:1.5rem 0">
+  <h3 style="color:#166534;font-weight:700;margin:0 0 1rem;font-size:.95rem">📝 各入力項目の説明</h3>
+  <div style="color:#374151;line-height:1.85;font-size:.85rem">
+    <p style="margin:0 0 .75rem"><strong>物件価格（万円）</strong><br>購入予定の物件価格を万円単位で入力。例）2500万円の場合は「2500」と入力。</p>
+    <p style="margin:0 0 .75rem"><strong>想定家賃収入（月額・万円）</strong><br>月額の想定家賃。例）月8万円の場合は「8」。複数戸数の場合は合計を入力。</p>
+    <p style="margin:0 0 .75rem"><strong>ローン返済額（月額・万円）</strong><br>月額のローン返済金。自己資金で購入する場合は「0」。例）月6万円なら「6」。</p>
+    <p style="margin:0 0 .75rem"><strong>月間維持費（万円）</strong><br>管理費・修繕積立金・固定資産税などの月間支出合計。例）月1.5万円なら「1.5」。</p>
+    <p style="margin:0 0 .75rem"><strong>想定空室率（%）</strong><br>空室の想定割合。0～100で指定。新築・立地好は5%、築古・地方は20～30%程度が目安。</p>
+    <p style="margin:0 0 .75rem"><strong>初期投資額・頭金（万円）</strong><br>ローンを除いた自己資金。入力すると「自己資金ROI」が計算される（任意）。</p>
+  </div>
+</div>
+<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:12px;padding:1.5rem 1.75rem;margin:1.5rem 0">
+  <h3 style="color:#92400e;font-weight:700;margin:0 0 1rem;font-size:.95rem">📊 計算ロジック</h3>
+  <div style="color:#374151;line-height:1.85;font-size:.85rem;font-family:monospace;background:#fffbeb;padding:.75rem;border-radius:.5rem;margin:0 0 .75rem">
+    <p style="margin:0 0 .5rem"><strong>表面利回り（%）</strong> = 年間家賃収入 ÷ 物件価格 × 100</p>
+    <p style="margin:0 0 .5rem"><strong>実質利回り（%）</strong> = 年間CF（空室・維持費・ローン込み） ÷ 物件価格 × 100</p>
+    <p style="margin:0 0 .5rem"><strong>月間CF</strong> = 月間家賃（空室控除後） - ローン返済額 - 月間維持費</p>
+    <p style="margin:0 0 .5rem"><strong>年間CF</strong> = 月間CF × 12</p>
+    <p style="margin:0"><strong>自己資金ROI（%）</strong> = 年間CF ÷ 自己資金（頭金） × 100</p>
+  </div>
+  <p style="color:#92400e;margin:0;font-size:.8rem">💡 「実質利回り」が最重要指標。複数物件を比較する際はこちらを参考に。</p>
+</div>
+<!-- r22-editorial -->
+<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:.75rem;padding:1.5rem;margin:1.5rem 0">
+  <h2 style="font-size:1.05rem;font-weight:800;color:#1e3a8a;margin:0 0 1rem;border-left:4px solid #2563eb;padding-left:.75rem">家計・資産管理の基礎データ（総務省・金融庁）</h2>
+  <p style="font-size:.88rem;color:#4b5563;margin:0 0 .75rem">総務省「家計調査」・金融庁データをもとに、日本の家計状況と資産形成の実態を整理しました。</p>
+  <table style="width:100%;border-collapse:collapse;font-size:.83rem">
+    <thead>
+      <tr style="background:#bfdbfe">
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bfdbfe;color:#1e3a8a">項目</th>
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bfdbfe;color:#1e3a8a">データ</th>
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bfdbfe;color:#1e3a8a">出典</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#eff6ff">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">二人以上世帯の月平均消費支出</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>約31.9万円（2023年平均）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">総務省「家計調査」2023年</td>
+      </tr>
+      <tr style="">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">勤労者世帯の平均貯蓄額</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>約1,279万円（中央値は370万円）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">金融広報中央委員会「家計の金融行動に関する調査」2023年</td>
+      </tr>
+      <tr style="background:#eff6ff">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">新NISAの年間投資上限</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>成長投資枠240万円＋つみたて枠120万円＝年間360万円</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">金融庁「新しいNISA」</td>
+      </tr>
+      <tr style="">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">投資信託の平均信託報酬（インデックス型）</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>0.1〜0.2%程度（近年の低コスト化が進む）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">各運用会社のファンド一覧より</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:.78rem;color:#6b7280;margin:.5rem 0 0">※ 記載データは各出典の公表時点の情報です。最新情報は各公的機関の公式サイトをご確認ください。</p>
+</div>
+<!-- r20-tool-links -->
+<div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem 1.5rem;margin:2rem 0">
+  <p style="font-weight:700;color:#374151;margin:0 0 .75rem;font-size:.9rem">📖 このツールに関連するコラム記事</p>
+  <ul style="margin:0;padding-left:1.25rem;color:#4b5563;line-height:2">
+    <li><a href="/blog/asset-management-beginner/" style="color:#4f46e5">資産運用入門</a></li>
+    <li><a href="/blog/stock-investment-beginner/" style="color:#4f46e5">株式投資入門：初心者完全ガイド</a></li>
+    <li><a href="/blog/investment-trust-guide/" style="color:#4f46e5">投資信託の選び方と長期運用</a></li>
+  </ul>
+</div>
+<div id="tool-disclaimer" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0;font-size:.875rem">
+  <p style="font-weight:700;color:#374151;margin:0 0 .5rem">⚠️ 計算結果の活用にあたって</p>
+  <p style="color:#4b5563;margin:0 0 .5rem;line-height:1.75">計算結果は参考値です。実際の税額・給付額・ローン返済額は個人の状況により異なります。重要な財務判断の際は最新の公式情報をご確認のうえ、ファイナンシャルプランナー・税理士等の専門家にご相談ください。</p>
+  <ul style="margin:0;padding-left:1.25rem;color:#4b5563;line-height:1.9"><li><a href="https://www.fsa.go.jp/policy/nisa2/about/index.html" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;font-size:.85rem">金融庁「NISAについて」</a></li><li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/index2.htm" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;font-size:.85rem">国税庁「タックスアンサー」</a></li></ul>
+</div>
+<section style="margin:2.5rem 0;padding:1.75rem 2rem;background:#f8fafc;border-radius:14px;border:1px solid #e2e8f0">
+<h2 style="font-size:1.1rem;font-weight:800;color:#1e3a5f;margin:0 0 1.2rem;border-left:4px solid #3b82f6;padding-left:.75rem">不動産投資の基礎知識とリスク管理</h2>
+<h3 style="font-size:.975rem;font-weight:700;color:#1e40af;margin:1.25rem 0 .5rem">不動産投資の利回りの計算方法</h3>
+<p style="color:#374151;line-height:1.85;margin:0 0 .75rem">表面利回り＝年間家賃収入÷物件価格×100。実質利回り＝（年間家賃収入-管理費・税金・修繕費等）÷（物件価格+購入諸費用）×100。例：2,000万円の物件・年間家賃120万円の場合、表面利回り6%、実質利回りは経費を引くと約4〜4.5%が目安です。キャップレート（市場還元利回り）との比較が重要です。</p>
+<h3 style="font-size:.975rem;font-weight:700;color:#1e40af;margin:1.25rem 0 .5rem">不動産投資の主なリスクと対策</h3>
+<p style="color:#374151;line-height:1.85;margin:0 0 .75rem">①空室リスク：入居率が下がると収益が激減。対策：利便性の高いエリア選定・管理会社の選択。②家賃下落リスク：築古ほど家賃は下がる傾向。③金利上昇リスク：変動金利でローンを組んでいると返済額が増加。④流動性リスク：株と違い売りたい時にすぐ売れない。⑤災害リスク：火災・水害・地震への保険加入が必須。</p>
+<h3 style="font-size:.975rem;font-weight:700;color:#1e40af;margin:1.25rem 0 .5rem">区分マンション・一棟投資・REITの比較</h3>
+<p style="color:#374151;line-height:1.85;margin:0 0 .75rem">初心者に比較的向いているのは：①区分マンション投資（少額から始められるが利回りが低め）②REIT（不動産投資信託、1株数万円から・流動性が高い・管理不要）。一棟投資（アパート・マンション）は高利回りが期待できる一方、初期投資が大きくリスクも高くなります。REITはNISA口座でも投資でき、初心者には最も入りやすい形態です。</p>
+<div style="background:#f0f9ff;border-left:4px solid #3b82f6;padding:1rem 1.25rem;margin:1.25rem 0;border-radius:0 8px 8px 0">
+<p style="font-weight:700;color:#1e40af;margin:0 0 .4rem">まとめ：不動産投資は綿密な事前シミュレーションが命</p>
+<p style="color:#1e3a8a;line-height:1.8;margin:0;font-size:.925rem">不動産投資は「現金を生む資産を持つ」という魅力がある一方、失敗すると長期にわたる損失につながります。シミュレーターで10〜20年間のキャッシュフローを複数のシナリオ（空室率10〜30%、家賃下落率2〜5%/年）で試算し、最悪のケースでも損失が許容範囲内かどうかを確認してから投資判断をしましょう。</p>
+</div>
+</section>
+
+<h2 class="font-bold text-gray-800 mb-4">📊 物件情報を入力</h2>
     <div class="space-y-4">
       <div>
-        <label for="price">物件価格（万円）</label>
-        <input type="number" id="price" class="input-field" placeholder="例: 2500" min="0" aria-label="例: 2500">
+        <label for="price">物件価格（万円）
+          <span class="tooltip-container">
+            <span class="tooltip-icon">?</span>
+            <span class="tooltip-text">購入予定の物件価格を万円単位で入力します。例：2500万円 → 2500</span>
+          </span>
+        </label>
+        <input type="number" id="price" class="input-field" placeholder="例: 2500 万円" min="0" aria-label="物件価格（万円）">
       </div>
       <div>
-        <label for="rent">想定家賃収入（月額・万円）</label>
-        <input type="number" id="rent" class="input-field" placeholder="例: 8" min="0" step="0.1" aria-label="例: 8">
+        <label for="rent">想定家賃収入（月額・万円）
+          <span class="tooltip-container">
+            <span class="tooltip-icon">?</span>
+            <span class="tooltip-text">月額の想定家賃。複数戸の場合は合計額を入力します。例：月8万円 → 8</span>
+          </span>
+        </label>
+        <input type="number" id="rent" class="input-field" placeholder="例: 8 万円/月" min="0" step="0.1" aria-label="想定家賃収入（月額・万円）">
       </div>
       <div>
-        <label for="loan">ローン返済額（月額・万円）</label>
-        <input type="number" id="loan" class="input-field" placeholder="例: 6 （自己資金購入の場合は0）" min="0" step="0.1" aria-label="例: 6 （自己資金購入の場合は0）">
+        <label for="loan">ローン返済額（月額・万円）
+          <span class="tooltip-container">
+            <span class="tooltip-icon">?</span>
+            <span class="tooltip-text">月額のローン返済金。自己資金購入なら0。例：月6万円 → 6</span>
+          </span>
+        </label>
+        <input type="number" id="loan" class="input-field" placeholder="例: 6 万円/月（0で自己資金）" min="0" step="0.1" aria-label="ローン返済額（月額・万円）">
       </div>
       <div>
-        <label for="running">月間維持費（管理費・修繕積立金・万円）</label>
-        <input type="number" id="running" class="input-field" placeholder="例: 1.5" min="0" step="0.1" aria-label="例: 1.5">
+        <label for="running">月間維持費（管理費・修繕積立金・万円）
+          <span class="tooltip-container">
+            <span class="tooltip-icon">?</span>
+            <span class="tooltip-text">管理費・修繕積立金・固定資産税などの月間支出合計。例：月1.5万円 → 1.5</span>
+          </span>
+        </label>
+        <input type="number" id="running" class="input-field" placeholder="例: 1.5 万円/月" min="0" step="0.1" aria-label="月間維持費（管理費・修繕積立金・万円）">
       </div>
       <div>
-        <label for="vacancy">想定空室率（%）</label>
-        <input type="number" id="vacancy" class="input-field" placeholder="例: 5" min="0" max="100" aria-label="例: 5">
+        <label for="vacancy">想定空室率（%）
+          <span class="tooltip-container">
+            <span class="tooltip-icon">?</span>
+            <span class="tooltip-text">空室率の想定割合。新築・好立地は5%、築古・地方は20～30%程度が目安。</span>
+          </span>
+        </label>
+        <input type="number" id="vacancy" class="input-field" placeholder="例: 5 ～ 30（%）" min="0" max="100" aria-label="想定空室率（%）">
+      </div>
+      <div>
+        <label for="equity">初期投資額・頭金（万円）<span class="text-gray-400 font-normal text-xs ml-1">※任意</span>
+          <span class="tooltip-container">
+            <span class="tooltip-icon">?</span>
+            <span class="tooltip-text">ローンを除いた自己資金額。入力すると「自己資金ROI」が計算されます。</span>
+          </span>
+        </label>
+        <input type="number" id="equity" class="input-field" placeholder="例: 500 万円（自己資金額）" min="0" step="1" aria-label="初期投資額・頭金（万円）">
       </div>
     </div>
-    <button class="btn-primary mt-5" onclick="calculate()">利回りを計算する →</button>
+    <div class="flex gap-3 mt-5">
+      <button class="btn-primary flex-1" onclick="calculate()">利回りを計算する →</button>
+      <button class="btn-reset" style="width:auto;padding:0.75rem 1.25rem;" onclick="resetForm()" aria-label="入力をリセット">クリア</button>
+    </div>
+  </div>
+
+  <div id="comparison-section" class="card p-6 mb-4" style="display:none;">
+    <h2 class="font-bold text-gray-800 mb-4">📋 保存済み物件の比較</h2>
+    <div id="saved-list" style="margin-bottom:1rem;"></div>
+    <div id="comparison-table" style="overflow-x:auto;"></div>
+    <button class="btn-reset" style="width:100%;margin-top:1rem;" onclick="clearAllSaved()" aria-label="全て削除">全て削除</button>
+  </div>
+
+  <div class="card p-6 mb-4">
+    <h3 class="font-bold text-gray-800 mb-3">💾 計算結果をエクスポート</h3>
+    <div class="flex gap-2 flex-wrap">
+      <button class="btn-reset" style="flex:1;min-width:120px;" onclick="exportCSV()" aria-label="CSVダウンロード" id="export-csv-btn" disabled>📥 CSV</button>
+      <button class="btn-reset" style="flex:1;min-width:120px;" onclick="exportJSON()" aria-label="JSONダウンロード" id="export-json-btn" disabled>📥 JSON</button>
+    </div>
   </div>
 
   <div id="results" class="card p-6 mb-4" style="display:none;">
     <h2 class="font-bold text-gray-800 mb-4">📈 シミュレーション結果</h2>
-    <div class="grid grid-cols-2 gap-3 mb-4">
+    <div class="grid grid-cols-2 gap-3 mb-4" id="metrics-grid">
       <div class="metric-box">
         <div class="metric-label">表面利回り</div>
         <div class="metric-value" id="r-gross">0%</div>
@@ -176,12 +401,20 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       </div>
       <div class="metric-box">
         <div class="metric-label">月間CF（ローン後）</div>
-        <div class="metric-value text-lg" id="r-monthly-cf">¥0</div>
+        <div class="metric-value text-lg" id="r-monthly-cf">0円</div>
       </div>
       <div class="metric-box">
         <div class="metric-label">年間CF</div>
-        <div class="metric-value text-lg" id="r-annual-cf">¥0</div>
+        <div class="metric-value text-lg" id="r-annual-cf">0万円</div>
       </div>
+      <div class="metric-box col-span-2" id="roi-box" style="display:none;">
+        <div class="metric-label">自己資金ROI（年間CF÷頭金）</div>
+        <div class="metric-value" id="r-roi">0%</div>
+      </div>
+    </div>
+    <div style="margin:2rem 0;padding:1.5rem;background:#f9fafb;border-radius:12px;border:1px solid #e5e7eb">
+      <h3 class="text-sm font-bold text-gray-700 mb-3">📊 利回り比較グラフ</h3>
+      <canvas id="yield-chart" height="80"></canvas>
     </div>
     <div class="bg-gray-50 rounded-lg p-4 mb-4">
       <div class="flex justify-between text-sm mb-2"><span class="text-gray-600">月間家賃収入（空室考慮）</span><span class="font-bold" id="r-rent-adj"></span></div>
@@ -189,21 +422,577 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       <div class="flex justify-between text-sm"><span class="text-gray-600">投資回収の目安</span><span class="font-bold" id="r-payback"></span></div>
     </div>
     <div class="text-sm p-3 rounded-lg" id="r-judge"></div>
+    <div class="mt-4 pt-4 border-t border-gray-200">
+      <button class="btn-reset" style="width:100%;margin-bottom:1rem;" onclick="saveResult()" aria-label="結果を保存">💾 この結果を保存して比較</button>
+      <p class="text-xs text-gray-500 mb-3 text-center">このページをシェア</p>
+      <div class="flex justify-center gap-2">
+        <a id="share-twitter" href="#" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-400 hover:bg-blue-500 transition" title="Twitterで共有" aria-label="Twitterで共有">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/></svg>
+        </a>
+        <a id="share-facebook" href="#" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 transition" title="Facebookで共有" aria-label="Facebookで共有">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a id="share-line" href="#" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-green-500 hover:bg-green-600 transition" title="LINEで共有" aria-label="LINEで共有">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.204-1.2-.4-2.322-1.605-2.322h-8.02V6.404c0-1.204-.844-2.247-2.076-2.247-1.188 0-2.16.95-2.16 2.247v11.44c0 1.297.972 2.247 2.16 2.247h8.02c1.205 0 1.809-1.122 1.605-2.322l-1.326-7.94m-3.51 6.022H9.04V8.568h6.815l.99 7.317z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="cf-projection" class="card p-6 mb-4" style="display:none;">
+    <h2 class="font-bold text-gray-800 mb-4">📊 キャッシュフロー推移（20年間）</h2>
+    <div style="margin-bottom:1.5rem;padding:1rem;background:#f9fafb;border-radius:12px;border:1px solid #e5e7eb">
+      <canvas id="cf-chart" height="90"></canvas>
+    </div>
+    <div style="overflow-x:auto;font-size:.8rem;">
+      <table id="cf-table" style="width:100%;border-collapse:collapse;text-align:right;">
+        <thead><tr style="background:#f3f4f6;"><th style="text-align:left;border:1px solid #e5e7eb;padding:.5rem;width:60px">年</th><th style="border:1px solid #e5e7eb;padding:.5rem">年間CF<br>（万円）</th><th style="border:1px solid #e5e7eb;padding:.5rem">累積CF<br>（万円）</th></tr></thead>
+        <tbody id="cf-tbody"></tbody>
+      </table>
+    </div>
+    <p style="font-size:.75rem;color:#6b7280;margin-top:.75rem">※ 固定で20年間のシミュレーション。実際は家賃下落・修繕費増加などの変動を考慮してください。</p>
   </div>
 
   <div class="card p-6 mb-4" id="affiliate-section" style="display:none;">
-    <h3 class="font-bold text-gray-800 mb-3">📚 不動産投資をもっと学ぶ</h3>
-    <div class="bg-green-50 border border-green-200 rounded-xl p-4 mb-3">
-      <div class="font-bold text-green-800 mb-1">無料で不動産投資セミナーに参加</div>
-      <p class="text-xs text-gray-600 mb-3">物件選び・融資・管理のプロが徹底解説。はじめての投資でも失敗しないノウハウを習得。</p>
-<div style="margin:24px auto;max-width:860px;padding:16px 20px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;">
-  <p style="font-size:12px;font-weight:600;color:#94a3b8;text-align:center;margin:0 0 12px;letter-spacing:0.05em;">スポンサーリンク</p>
-  <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
-    <a href="https://px.a8.net/svt/ejp?a8mat=4B3WJA+86RVSA+3XCC+64C3M" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-flex;align-items:center;padding:8px 14px;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;font-size:13px;color:#334155;text-decoration:none;white-space:nowrap;">松井証券</a><img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=4B3WJA+86RVSA+3XCC+64C3M" alt="">
-    <a href="https://px.a8.net/svt/ejp?a8mat=4AX38J+38R9WQ+3M0+2N9S82" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-flex;align-items:center;padding:8px 14px;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;font-size:13px;color:#334155;text-decoration:none;white-space:nowrap;">Goomies DVD</a><img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4AX38J+38R9WQ+3M0+2N9S82" alt="">
-    <a href="https://px.a8.net/svt/ejp?a8mat=4B3WJ6+FQ9JMY+1LP8+BY642" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-flex;align-items:center;padding:8px 14px;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;font-size:13px;color:#334155;text-decoration:none;white-space:nowrap;">日々の生活にハッピーをプラス！《ハピタス》</a><img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4B3WJ6+FQ9JMY+1LP8+BY642" alt="">
+    <h3 class="font-bold text-gray-800 mb-3">📚 次のステップ：不動産投資をもっと学ぶ</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
+      <div class="bg-blue-50 border border-blue-200 rounded-xl p-3" style="font-size:.85rem">
+        <div class="font-bold text-blue-800 mb-1">🎓 無料セミナー</div>
+        <p class="text-gray-600 text-xs mb-2">物件選び・融資・管理のプロが徹底解説。失敗しないノウハウを習得。</p>
+      </div>
+      <div class="bg-green-50 border border-green-200 rounded-xl p-3" style="font-size:.85rem">
+        <div class="font-bold text-green-800 mb-1">💼 投資家向けコミュニティ</div>
+        <p class="text-gray-600 text-xs mb-2">物件情報・相場動向・投資戦略を共有。先輩投資家のネットワーク。</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
+      <div class="bg-purple-50 border border-purple-200 rounded-xl p-3" style="font-size:.85rem">
+        <div class="font-bold text-purple-800 mb-1">📈 REIT投資</div>
+        <p class="text-gray-600 text-xs mb-2">1万円から始める不動産投資信託。少額・分散・流動性が高い。</p>
+      </div>
+      <div class="bg-orange-50 border border-orange-200 rounded-xl p-3" style="font-size:.85rem">
+        <div class="font-bold text-orange-800 mb-1">🏦 融資相談</div>
+        <p class="text-gray-600 text-xs mb-2">不動産投資ローンの相談。金利・条件の最適化で収益性UP。</p>
+      </div>
+    </div>
+    <div style="margin:24px auto;max-width:720px;padding:16px 20px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;">
+      <p style="font-size:12px;font-weight:600;color:#94a3b8;text-align:center;margin:0 0 12px;letter-spacing:0.05em;">スポンサーリンク</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
+        <a href="https://px.a8.net/svt/ejp?a8mat=4B3WJA+86RVSA+3XCC+64C3M" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-flex;align-items:center;padding:8px 14px;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;font-size:13px;color:#334155;text-decoration:none;white-space:nowrap;">松井証券</a><img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=4B3WJA+86RVSA+3XCC+64C3M" alt="">
+        <a href="https://px.a8.net/svt/ejp?a8mat=4AX38J+38R9WQ+3M0+2N9S82" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-flex;align-items:center;padding:8px 14px;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;font-size:13px;color:#334155;text-decoration:none;white-space:nowrap;">Goomies DVD</a><img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4AX38J+38R9WQ+3M0+2N9S82" alt="">
+        <a href="https://px.a8.net/svt/ejp?a8mat=4B3WJ6+FQ9JMY+1LP8+BY642" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-flex;align-items:center;padding:8px 14px;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;font-size:13px;color:#334155;text-decoration:none;white-space:nowrap;">日々の生活にハッピーをプラス！《ハピタス》</a><img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4B3WJ6+FQ9JMY+1LP8+BY642" alt="">
+      </div>
+    </div>
   </div>
+
+</div><!-- /main -->
+
+<script>
+const STORAGE_KEY = "realestate_sim_v1";
+const STORAGE_SAVED_KEY = "realestate_sim_v1_saved";
+const FIELDS = ["price","rent","loan","running","vacancy","equity"];
+let lastCalculation = null;
+
+// localStorage から入力値を復元
+function restoreInputs() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    FIELDS.forEach(id => {
+      if (saved[id] !== undefined && saved[id] !== "") {
+        document.getElementById(id).value = saved[id];
+      }
+    });
+  } catch (e) { /* 復元失敗は無視 */ }
+  displayComparison();
+}
+
+// localStorage に入力値を保存
+function saveInputs() {
+  try {
+    const data = {};
+    FIELDS.forEach(id => { data[id] = document.getElementById(id).value; });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch (e) { /* 保存失敗は無視 */ }
+}
+
+// 万円単位の数値を円換算してカンマ区切り表示
+function formatYen(manValue) {
+  const yen = Math.round(manValue * 10000);
+  const sign = yen >= 0 ? "+" : "";
+  return sign + yen.toLocaleString("ja-JP") + "円";
+}
+
+function formatMan(manValue) {
+  const sign = manValue >= 0 ? "+" : "";
+  return sign + manValue.toFixed(1) + "万円";
+}
+
+function calculate() {
+  const price   = parseFloat(document.getElementById("price").value) || 0;
+  const rent    = parseFloat(document.getElementById("rent").value) || 0;
+  const loan    = parseFloat(document.getElementById("loan").value) || 0;
+  const running = parseFloat(document.getElementById("running").value) || 0;
+  const vacancy = parseFloat(document.getElementById("vacancy").value) || 0;
+  const equity  = parseFloat(document.getElementById("equity").value) || 0;
+
+  if (price <= 0 || rent <= 0) {
+    alert("物件価格と家賃収入を入力してください");
+    return;
+  }
+
+  // 表面利回り (%)
+  const grossYield = (rent * 12 / price) * 100;
+  // 月間家賃（空室考慮）
+  const rentAdj = rent * (1 - vacancy / 100);
+  // 月間支出
+  const monthlyExpense = loan + running;
+  // 月間CF
+  const monthlyCF = rentAdj - monthlyExpense;
+  // 年間CF
+  const annualCF = monthlyCF * 12;
+  // 実質利回り (%)
+  const netYield = (annualCF / price) * 100;
+  // 投資回収年数（CF がプラスの場合のみ意味がある）
+  const payback = annualCF > 0 ? (price / annualCF).toFixed(1) + "年" : "―";
+
+  // CF 表示（円換算・正負で色分け）
+  const cfMonthlyEl = document.getElementById("r-monthly-cf");
+  cfMonthlyEl.textContent = formatYen(monthlyCF);
+  cfMonthlyEl.className = "metric-value text-lg " + (monthlyCF >= 0 ? "cf-positive" : "cf-negative");
+
+  const cfAnnualEl = document.getElementById("r-annual-cf");
+  cfAnnualEl.textContent = formatMan(annualCF);
+  cfAnnualEl.className = "metric-value text-lg " + (annualCF >= 0 ? "cf-positive" : "cf-negative");
+
+  document.getElementById("r-gross").textContent = grossYield.toFixed(1) + "%";
+  document.getElementById("r-net").textContent = netYield.toFixed(1) + "%";
+  document.getElementById("r-rent-adj").textContent = rentAdj.toFixed(2) + "万円";
+  document.getElementById("r-expense").textContent = monthlyExpense.toFixed(2) + "万円";
+  document.getElementById("r-payback").textContent = payback;
+
+  // 自己資金ROI（頭金入力時のみ表示）
+  const roiBox = document.getElementById("roi-box");
+  if (equity > 0) {
+    const roi = (annualCF / equity) * 100;
+    const roiEl = document.getElementById("r-roi");
+    roiEl.textContent = roi.toFixed(1) + "%";
+    roiEl.className = "metric-value " + (roi >= 0 ? "cf-positive" : "cf-negative");
+    roiBox.style.display = "block";
+  } else {
+    roiBox.style.display = "none";
+  }
+
+  // 判定メッセージ
+  let judgeMsg = "";
+  let bgColor = "";
+  if (netYield >= 10) {
+    judgeMsg = "✅ 非常に優良な物件です。積極的な投資検討をおすすめします。";
+    bgColor = "bg-green-100 text-green-800";
+  } else if (netYield >= 7) {
+    judgeMsg = "🟢 良好な物件です。詳細な分析のうえ検討をおすすめします。";
+    bgColor = "bg-blue-100 text-blue-800";
+  } else if (netYield >= 4) {
+    judgeMsg = "🟡 標準的な物件です。他の条件と比較検討してください。";
+    bgColor = "bg-yellow-100 text-yellow-800";
+  } else if (netYield >= 0) {
+    judgeMsg = "🔴 利回りが低めです。慎重な検討をおすすめします。";
+    bgColor = "bg-orange-100 text-orange-800";
+  } else {
+    judgeMsg = "❌ 赤字物件です。投資はおすすめできません。";
+    bgColor = "bg-red-100 text-red-800";
+  }
+  document.getElementById("r-judge").className = "text-sm p-3 rounded-lg " + bgColor;
+  document.getElementById("r-judge").textContent = judgeMsg;
+
+  lastCalculation = {
+    price, rent, loan, running, vacancy, equity,
+    grossYield, netYield, monthlyCF, annualCF, rentAdj, monthlyExpense
+  };
+
+  // CF推移テーブル生成
+  const cfTbody = document.getElementById("cf-tbody");
+  let cfHtml = "";
+  let cumCF = 0;
+  for (let i = 1; i <= 20; i++) {
+    cumCF += annualCF;
+    const rowBg = i % 2 === 1 ? "#ffffff" : "#f9fafb";
+    const color = annualCF >= 0 ? "#059669" : "#dc2626";
+    cfHtml += "<tr style='background:" + rowBg + "'>";
+    cfHtml += "<td style='text-align:left;border:1px solid #e5e7eb;padding:.5rem;font-weight:600'>" + i + "年</td>";
+    cfHtml += "<td style='border:1px solid #e5e7eb;padding:.5rem;color:" + color + "'>" + annualCF.toFixed(1) + "</td>";
+    cfHtml += "<td style='border:1px solid #e5e7eb;padding:.5rem;font-weight:600;color:" + (cumCF >= 0 ? "#059669" : "#dc2626") + "'>" + cumCF.toFixed(1) + "</td>";
+    cfHtml += "</tr>";
+  }
+  cfTbody.innerHTML = cfHtml;
+
+  // グラフを描画
+  drawYieldChart(grossYield, netYield);
+  drawCFChart(annualCF);
+
+  document.getElementById("results").style.display = "block";
+  document.getElementById("cf-projection").style.display = "block";
+  document.getElementById("affiliate-section").style.display = "block";
+  document.getElementById("export-csv-btn").disabled = false;
+  document.getElementById("export-json-btn").disabled = false;
+
+  setTimeout(() => {
+    document.getElementById("results").scrollIntoView({ behavior: "smooth" });
+  }, 100);
+}
+
+// 利回り比較グラフ（棒グラフ）
+function drawYieldChart(grossYield, netYield) {
+  const ctx = document.getElementById('yield-chart');
+  if (!ctx) return;
+
+  if (window.yieldChartInstance) {
+    window.yieldChartInstance.destroy();
+  }
+
+  window.yieldChartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['表面利回り', '実質利回り'],
+      datasets: [{
+        label: '利回り (%)',
+        data: [grossYield, netYield],
+        backgroundColor: ['#e0f2fe', '#059669'],
+        borderColor: ['#0284c7', '#047857'],
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      indexAxis: 'y',
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        x: {
+          beginAtZero: true,
+          max: Math.max(grossYield, netYield, 10) * 1.2
+        }
+      }
+    }
+  });
+}
+
+// キャッシュフロー推移グラフ（折れ線グラフ）
+function drawCFChart(annualCF) {
+  const ctx = document.getElementById('cf-chart');
+  if (!ctx) return;
+
+  if (window.cfChartInstance) {
+    window.cfChartInstance.destroy();
+  }
+
+  const years = Array.from({length: 20}, (_, i) => i + 1);
+  const cumulativeCF = years.map(i => i * annualCF);
+
+  window.cfChartInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [{
+        label: '累積キャッシュフロー（万円）',
+        data: cumulativeCF,
+        borderColor: annualCF >= 0 ? '#059669' : '#dc2626',
+        backgroundColor: annualCF >= 0 ? 'rgba(5, 150, 105, 0.1)' : 'rgba(220, 38, 38, 0.1)',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.3,
+        pointRadius: 3,
+        pointBackgroundColor: annualCF >= 0 ? '#059669' : '#dc2626'
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { display: true }
+      },
+      scales: {
+        y: {
+          title: { display: true, text: '万円' }
+        }
+      }
+    }
+  });
+}
+
+// 計算結果を保存
+function saveResult() {
+  if (!lastCalculation) {
+    alert("計算を実行してから保存してください");
+    return;
+  }
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_SAVED_KEY) || "[]");
+    const item = {
+      id: Date.now(),
+      name: "物件" + (saved.length + 1),
+      timestamp: new Date().toLocaleString("ja-JP"),
+      ...lastCalculation
+    };
+    saved.push(item);
+    localStorage.setItem(STORAGE_SAVED_KEY, JSON.stringify(saved));
+    displayComparison();
+    alert("計算結果を保存しました！");
+  } catch (e) {
+    alert("保存に失敗しました");
+  }
+}
+
+// 保存済み物件を表示・比較
+function displayComparison() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_SAVED_KEY) || "[]");
+    const section = document.getElementById("comparison-section");
+    const list = document.getElementById("saved-list");
+    const table = document.getElementById("comparison-table");
+
+    if (saved.length === 0) {
+      section.style.display = "none";
+      return;
+    }
+
+    section.style.display = "block";
+    list.innerHTML = "<p style='color:#374151;font-size:.9rem;margin:0 0 1rem'>保存済み物件: " + saved.length + "件</p>";
+
+    // 比較テーブル
+    let tableHtml = "<table style='width:100%;border-collapse:collapse;font-size:.8rem'>";
+    tableHtml += "<thead><tr style='background:#f3f4f6'><th style='border:1px solid #e5e7eb;padding:.5rem;text-align:left'>物件名</th><th style='border:1px solid #e5e7eb;padding:.5rem;text-align:right'>物件価格<br>(万円)</th><th style='border:1px solid #e5e7eb;padding:.5rem;text-align:right'>表面利回り</th><th style='border:1px solid #e5e7eb;padding:.5rem;text-align:right'>実質利回り</th><th style='border:1px solid #e5e7eb;padding:.5rem;text-align:right'>月間CF</th><th style='border:1px solid #e5e7eb;padding:.5rem;text-align:center'>操作</th></tr></thead>";
+    tableHtml += "<tbody>";
+    saved.forEach(item => {
+      const rowBg = saved.indexOf(item) % 2 === 0 ? "#ffffff" : "#f9fafb";
+      tableHtml += "<tr style='background:" + rowBg + "'>";
+      tableHtml += "<td style='border:1px solid #e5e7eb;padding:.5rem'>" + item.name + "</td>";
+      tableHtml += "<td style='border:1px solid #e5e7eb;padding:.5rem;text-align:right'>" + item.price.toFixed(0) + "</td>";
+      tableHtml += "<td style='border:1px solid #e5e7eb;padding:.5rem;text-align:right'>" + item.grossYield.toFixed(1) + "%</td>";
+      tableHtml += "<td style='border:1px solid #e5e7eb;padding:.5rem;text-align:right;font-weight:600;color:" + (item.netYield >= 0 ? "#059669" : "#dc2626") + "'>" + item.netYield.toFixed(1) + "%</td>";
+      tableHtml += "<td style='border:1px solid #e5e7eb;padding:.5rem;text-align:right'>" + formatYen(item.monthlyCF) + "</td>";
+      tableHtml += "<td style='border:1px solid #e5e7eb;padding:.5rem;text-align:center'><button onclick='removeSaved(" + item.id + ")' style='background:#f3f4f6;border:1px solid #d1d5db;padding:.25rem .5rem;border-radius:.375rem;cursor:pointer;font-size:.75rem'>削除</button></td>";
+      tableHtml += "</tr>";
+    });
+    tableHtml += "</tbody></table>";
+    table.innerHTML = tableHtml;
+  } catch (e) {
+    /* 表示失敗は無視 */
+  }
+}
+
+// 保存済み物件を削除
+function removeSaved(id) {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_SAVED_KEY) || "[]");
+    const filtered = saved.filter(item => item.id !== id);
+    localStorage.setItem(STORAGE_SAVED_KEY, JSON.stringify(filtered));
+    displayComparison();
+  } catch (e) {}
+}
+
+// 全て削除
+function clearAllSaved() {
+  if (confirm("保存済み物件をすべて削除しますか？")) {
+    try {
+      localStorage.removeItem(STORAGE_SAVED_KEY);
+      displayComparison();
+    } catch (e) {}
+  }
+}
+
+// CSV エクスポート
+function exportCSV() {
+  if (!lastCalculation) {
+    alert("計算を実行してからエクスポートしてください");
+    return;
+  }
+  const c = lastCalculation;
+  const csv = "項目,値\n" +
+    "物件価格（万円)," + c.price + "\n" +
+    "想定家賃収入（月額・万円)," + c.rent + "\n" +
+    "ローン返済額（月額・万円)," + c.loan + "\n" +
+    "月間維持費（万円)," + c.running + "\n" +
+    "想定空室率（%)," + c.vacancy + "\n" +
+    "初期投資額・頭金（万円)," + (c.equity || "-") + "\n\n" +
+    "計算結果,値\n" +
+    "表面利回り(%)," + c.grossYield.toFixed(1) + "\n" +
+    "実質利回り(%)," + c.netYield.toFixed(1) + "\n" +
+    "月間CF（ローン後・万円)," + c.monthlyCF.toFixed(2) + "\n" +
+    "年間CF（万円)," + c.annualCF.toFixed(1) + "\n" +
+    "月間家賃収入（空室考慮・万円)," + c.rentAdj.toFixed(2) + "\n" +
+    "月間支出（ローン+維持費・万円)," + c.monthlyExpense.toFixed(2);
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const link = document.createElement("a");
+  const url = URL.createObjectURL(blob);
+  link.href = url;
+  link.download = "realestate_calc_" + Date.now() + ".csv";
+  link.click();
+}
+
+// JSON エクスポート
+function exportJSON() {
+  if (!lastCalculation) {
+    alert("計算を実行してからエクスポートしてください");
+    return;
+  }
+  const data = {
+    timestamp: new Date().toISOString(),
+    inputs: {
+      price: lastCalculation.price,
+      rent: lastCalculation.rent,
+      loan: lastCalculation.loan,
+      running: lastCalculation.running,
+      vacancy: lastCalculation.vacancy,
+      equity: lastCalculation.equity
+    },
+    results: {
+      grossYield: lastCalculation.grossYield,
+      netYield: lastCalculation.netYield,
+      monthlyCF: lastCalculation.monthlyCF,
+      annualCF: lastCalculation.annualCF,
+      rentAdj: lastCalculation.rentAdj,
+      monthlyExpense: lastCalculation.monthlyExpense
+    }
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json;charset=utf-8;" });
+  const link = document.createElement("a");
+  const url = URL.createObjectURL(blob);
+  link.href = url;
+  link.download = "realestate_calc_" + Date.now() + ".json";
+  link.click();
+}
+
+function resetForm() {
+  FIELDS.forEach(id => { document.getElementById(id).value = ""; });
+  document.getElementById("results").style.display = "none";
+  document.getElementById("cf-projection").style.display = "none";
+  document.getElementById("affiliate-section").style.display = "none";
+  document.getElementById("roi-box").style.display = "none";
+  document.getElementById("export-csv-btn").disabled = true;
+  document.getElementById("export-json-btn").disabled = true;
+  lastCalculation = null;
+  // チャートを破棄
+  if (window.yieldChartInstance) {
+    window.yieldChartInstance.destroy();
+    window.yieldChartInstance = null;
+  }
+  if (window.cfChartInstance) {
+    window.cfChartInstance.destroy();
+    window.cfChartInstance = null;
+  }
+  try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+}
+
+// シェアボタン
+const pageUrl = "https://appadaycreator.com/real-estate-investment-sim/";
+const pageTitle = "不動産投資計算【無料】利回り・キャッシュフローをシミュレーション";
+
+document.getElementById("share-twitter").addEventListener("click", function(e) {
+  e.preventDefault();
+  const text = "不動産投資の利回り・キャッシュフロー計算ツール\n物件情報を入力すると、表面利回り・実質利回り・月間CF・投資回収年数がすぐにわかります\n #不動産投資 #投資 #資産運用";
+  window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(pageUrl) + "&text=" + encodeURIComponent(text), "_blank", "width=600,height=400");
+});
+
+document.getElementById("share-facebook").addEventListener("click", function(e) {
+  e.preventDefault();
+  window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(pageUrl), "_blank", "width=600,height=400");
+});
+
+document.getElementById("share-line").addEventListener("click", function(e) {
+  e.preventDefault();
+  window.open("https://line.me/R/msg/text/?" + encodeURIComponent(pageTitle + "\n" + pageUrl), "_blank");
+});
+
+// Enterキーで計算実行
+document.addEventListener("keypress", function(e) {
+  if (e.key === "Enter" && e.target.classList.contains("input-field")) {
+    calculate();
+  }
+});
+
+// 入力変更時に自動保存
+FIELDS.forEach(id => {
+  document.getElementById(id).addEventListener("input", saveInputs);
+});
+
+// ページ読み込み時に前回値を復元
+document.addEventListener("DOMContentLoaded", restoreInputs);
+</script>
+<div style="text-align:center;margin:24px auto;max-width:760px;padding:0 16px">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
+</div>
+<div style="text-align:center;padding:10px 16px 14px;background:#eef2ff;border-top:2px solid #c7d2fe;margin-top:8px">
+<a href="/blog/" style="color:#4f46e5;font-size:.85rem;font-weight:700">📖 マネー・育児・キャリアのコラムを読む →</a>
 </div>
 
+<div style="background:#f8faff;border:1px solid #e0e7ff;border-radius:.75rem;padding:1.25rem 1.5rem;margin:1.5rem auto;max-width:740px">
+  <p style="font-weight:700;font-size:.9rem;margin:0 0 .75rem;color:#3730a3">📋 このツールの詳細</p>
+  <p style="font-size:.875rem;color:#374151;line-height:1.8;margin:0 0 .5rem">本ツールは、不動産投資計算利回り・キャッシュフローをシミュレーションを手軽に利用できる無料Webサービスです。登録不要でブラウザから直接ご利用いただけます。</p>
+  <p style="font-size:.875rem;color:#374151;line-height:1.8;margin:0 0 .5rem">スマートフォン・タブレット・PCのすべてに対応したレスポンシブデザインです。入力データはブラウザ内のみで処理・保存され、外部サーバーに送信されることはありません。</p>
+  <p style="font-size:.875rem;color:#374151;line-height:1.8;margin:0">計算・診断の結果はあくまでも参考値です。重要な意思決定の際は専門家・公式機関にもご相談ください。このツールの利用は無料・無制限です。</p>
+</div>
+<section aria-labelledby="faq-h" class="bg-white rounded-2xl shadow-md p-4 mb-4" style="max-width:740px;margin-left:auto;margin-right:auto">
+  <div style="background:#f0f4ff;border-radius:12px;padding:1.25rem 1.5rem;margin:1.5rem 0;border:1px solid #c7d7ff">
+  <p style="font-weight:800;color:#1e3a8a;font-size:.9rem;margin:0 0 .75rem">📚 関連する解説記事</p>
+  <div style="display:flex;flex-direction:column;gap:8px">
+<a href="/blog/investment-beginner-guide/" style="display:block;padding:10px 14px;background:#fff;border:1px solid #e0e7ff;border-radius:8px;color:#1e40af;font-size:.875rem;font-weight:600;text-decoration:none" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='#fff'">📄 投資初心者が知るべき10のこと</a>
+<a href="/blog/asset-management-beginner/" style="display:block;padding:10px 14px;background:#fff;border:1px solid #e0e7ff;border-radius:8px;color:#1e40af;font-size:.875rem;font-weight:600;text-decoration:none" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='#fff'">📄 資産運用入門</a>
+  </div>
+</div>
+<h2 id="faq-h" style="font-size:1.05rem;font-weight:700;margin-bottom:12px;border-left:4px solid #4f46e5;padding-left:10px;">よくある質問</h2>
+  <dl style="line-height:1.8;">
+    <dt style="font-weight:600;margin-top:12px;">Q: この計算ツールはどんな場面で役立ちますか？</dt>
+    <dd style="margin-left:16px;color:#374151;">不動産投資計算利回り・キャッシュフロに関する費用・数値を手軽に試算できます。複数パターンを試して比較検討にご活用ください。</dd>
+    <dt style="font-weight:600;margin-top:12px;">Q: 計算結果の精度はどのくらいですか？</dt>
+    <dd style="margin-left:16px;color:#374151;">一般的な基準値をもとにした目安です。重要な意思決定の際は専門家にもご相談ください。</dd>
+    <dt style="font-weight:600;margin-top:12px;">Q: スマートフォンでも使えますか？</dt>
+    <dd style="margin-left:16px;color:#374151;">はい、PC・スマートフォン・タブレットすべてに対応しています。登録不要・完全無料でご利用いただけます。</dd>
+  </dl>
+</section>
+<div style="background:#eef2ff;border-left:4px solid #4f46e5;border-radius:.5rem;padding:1rem 1.25rem;margin:1.5rem auto;max-width:760px;font-size:.875rem">
+<p style="margin:0 0 .5rem;font-weight:700;color:#3730a3">📖 お役立ちコラム</p>
+<ul style="margin:0;padding-left:1.25rem;color:#4f46e5;line-height:2">
+<li><a href="/blog/stock-investment-beginner/" style="color:#4f46e5">株式投資の始め方【初心者完全ガイド】</a></li>
+<li><a href="/blog/nisa-comparison/" style="color:#4f46e5">新NISA vs iDeCo 徹底比較</a></li>
+<li><a href="/blog/investment-risk-management/" style="color:#4f46e5">投資のリスク管理入門</a></li>
+</ul>
+</div>
+
+<div style="background:#eef2ff;border:1px solid #c7d2fe;border-radius:10px;padding:1.25rem 1.5rem;margin:2rem 0">
+  <p style="font-weight:800;color:#3730a3;margin:0 0 .75rem;font-size:.9rem">📖 このツールに関連するコラム</p>
+  <ul style="margin:0;padding-left:1.25rem;line-height:2;font-size:.9rem">
+<li><a href="/blog/buy-vs-rent-guide/" style="color:#4f46e5">持ち家vs賃貸：生涯コスト比較</a></li>
+  </ul>
+</div>
+<!-- r22-footer-nav -->
+<footer style="background:#1f2937;color:#9ca3af;text-align:center;padding:1.5rem 1rem;margin-top:2rem;font-size:.8rem">
+  <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:.75rem">
+    <a href="/" style="color:#9ca3af;text-decoration:none">ホーム</a>
+    <a href="/about.html" style="color:#9ca3af;text-decoration:none">運営者情報</a>
+    <a href="/privacy-policy.html" style="color:#9ca3af;text-decoration:none">プライバシーポリシー</a>
+    <a href="/contact.html" style="color:#9ca3af;text-decoration:none">お問い合わせ</a>
+    <a href="/terms.html" style="color:#9ca3af;text-decoration:none">利用規約</a>
+  </div>
+  <p style="margin:0">&copy; 2024-2026 AppADayCreator</p>
+</footer>
+<!-- r17-mobile-ux -->
+<a href="#top" id="back-to-top" aria-label="ページトップへ戻る" style="display:none;position:fixed;bottom:24px;right:20px;background:#4f46e5;color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:1.4rem;line-height:48px;text-align:center;text-decoration:none;box-shadow:0 4px 12px rgba(79,70,229,.4);z-index:9000;cursor:pointer" title="ページトップへ">↑</a>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if(!btn) return;
+  window.addEventListener('scroll', function(){
+    btn.style.display = window.scrollY > 400 ? 'block' : 'none';
+  }, {passive:true});
+})();
+</script>
+<!-- r28-disclaimer -->
+<footer style="margin-top:2rem;padding:1rem;background:#f9fafb;border-top:1px solid #e5e7eb;font-size:.76rem;color:#9ca3af;text-align:center">
+<p style="margin:0">本ツールの計算結果・情報はあくまで参考値です。実際の数値は条件により異なります。重要な意思決定には専門家または公的機関への相談をご検討ください。</p>
+</footer>
 </body>
 </html>
