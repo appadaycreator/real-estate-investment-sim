@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Consent Mode v2 -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});(function(){try{var k='cookie-consent-v2',o='cookie-consent';var c=localStorage.getItem(k);if(!c&&localStorage.getItem(o)==='1')c='granted';if(c){var s=c==='granted'?'granted':'denied';gtag('consent','update',{'analytics_storage':s,'ad_storage':s,'ad_user_data':s,'ad_personalization':s});}}catch(e){}})();</script>
+<!-- End Consent Mode v2 -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
 new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
@@ -20,6 +23,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#7c3aed">
 <meta name="description" content="不動産投資の利回り・キャッシュフローを無料でシミュレーション。物件価格・家賃・ローン返済・維持費から表面利回り・実質利回り・月間CF・投資回収期間を即計算。複数物件の比較分析で投資判断をサポートする無料ツール。">
+<meta name="author" content="AppADayCreator">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <meta property="og:title" content="不動産投資計算【無料】利回り・キャッシュフローをシミュレーション">
 <meta property="og:description" content="物件価格・家賃・ローン返済・維持費を入力するだけで、表面利回り・実質利回り・月間キャッシュフロー・投資回収期間が即座に計算できます。不動産投資の判断に活用できる無料シミュレーターです。">
@@ -80,9 +84,7 @@ button, .btn, .btn-primary, .btn-reset, .option-btn, [role="button"] { min-heigh
 ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!important;height:0!important}
 </style>
 <link rel="canonical" href="https://appadaycreator.com/real-estate-investment-sim/">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"不動産投資計算は無料で使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい、完全無料・登録不要でご利用いただけます。"}},{"@type":"Question","name":"表面利回りと実質利回りの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"表面利回りは年間家賃収入÷物件価格×100%で、諸経費を考慮しません。実質利回りはローン返済・維持費・空室を差し引いた年間CFから算出するため、投資判断に適しています。"}},{"@type":"Question","name":"入力したデータはサーバーに送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべての処理はブラウザ内で完結し、入力内容はサーバーへ送信されません。前回の入力値はブラウザのlocalStorageに保存されます。"}},{"@type":"Question","name":"計算結果は実際の投資判断に使えますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは参考情報の提供を目的としています。実際の投資・融資判断には不動産会社・ファイナンシャルプランナー等の専門家にご相談ください。"}},{"@type":"Question","name":"スマートフォンでも使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい、スマートフォン・タブレット・PCすべてに最適化されています。"}}]}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"表面利回りと実質利回りの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"表面利回りは年間家賃収入÷物件価格×100%で、諸経費を考慮しません。実質利回りはローン返済・維持費・空室を差し引いた年間CFから算出するため、投資判断に適しています。"}},{"@type":"Question","name":"計算結果は実際の投資判断に使えますか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは参考情報の提供を目的としています。実際の投資・融資判断には不動産会社・ファイナンシャルプランナー等の専門家にご相談ください。"}}]}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -150,7 +152,11 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
   "name": "appadaycreator",
   "url": "https://appadaycreator.com",
   "logo": "https://appadaycreator.com/logo.png",
-  "description": "無料Webサービス・診断ツール 180種類以上を運営"
+  "description": "無料Webサービス・診断ツール 180種類以上を運営",
+  "sameAs": [
+    "https://twitter.com/appadaycreate",
+    "https://appadaycreator.com"
+  ]
 }
 </script>
 <meta property="og:type" content="website">
@@ -196,7 +202,28 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://appadaycreator.com/"},{"@type":"ListItem","position":2,"name":"計算機/お金","item":"https://appadaycreator.com/category/finance/"},{"@type":"ListItem","position":3,"name":"不動産投資計算利回り・キャッシュフローをシミュレーション","item":"https://appadaycreator.com/real-estate-investment-sim/"}]}</script>
 <script src="https://www.clarity.ms/tag/s3t9vl8h3v" async></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "不動産投資計算【無料】利回り・キャッシュフローをシミュレーション", "url": "https://appadaycreator.com/real-estate-investment-sim/", "description": "不動産投資の利回り・キャッシュフローを無料でシミュレーション。物件価格・家賃・ローン返済・維持費から表面利回り・実質利回り・月間CF・投資回収期間を即計算。複数物件の比較分析で投資判断をサポートする無料ツール。", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "provider": {"@type": "Organization", "name": "AppADayCreator", "url": "https://appadaycreator.com/"}}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "不動産投資計算【無料】利回り・キャッシュフローをシミュレーション",
+  "url": "https://appadaycreator.com/real-estate-investment-sim/",
+  "description": "不動産投資の利回り・キャッシュフローを無料でシミュレーション。物件価格・家賃・ローン返済・維持費から表面利回り・実質利回り・月間CF・投資回収期間を即計算。複数物件の比較分析で投資判断をサポートする無料ツール。",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "JPY"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "AppADayCreator",
+    "url": "https://appadaycreator.com/"
+  },
+  "inLanguage": "ja"
+}
+</script>
 </head>
 <body class="font-sans">
 <div style="background:#4338ca;padding:5px 12px;text-align:right;font-size:.78rem"><a href="/blog/" style="color:#c7d2fe;text-decoration:none;font-weight:600">📖 コラム</a>&nbsp;｜&nbsp;<a href="/" style="color:#c7d2fe;text-decoration:none">ホーム</a></div>
@@ -220,8 +247,6 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
   <div class="card p-6 mb-6">
     <div id="tool-desc-box" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:1.5rem 1.75rem;margin:1.5rem 0">
   <p style="color:#374151;margin:0 0 .75rem;line-height:1.75;font-size:.92rem">不動産投資計算【無料】利回り・キャッシュフローをシミュレーションは、AppADayCreatorが提供する完全無料の無料ツールです。登録・ログイン不要で、すぐにご利用いただけます。</p>
-  <p style="color:#374151;margin:0 0 .75rem;line-height:1.75;font-size:.92rem">【使い方】①必要な情報を入力 → ②ボタンをクリック → ③結果・アドバイスを確認してください。</p>
-  <p style="color:#4b5563;margin:0;line-height:1.75;font-size:.9rem">当ツールで入力したデータはお使いのブラウザ内にのみ保存され、外部サーバーへ送信されることはありません。安心してご利用ください。</p>
 </div>
 <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:1.5rem 1.75rem;margin:1.5rem 0">
   <h3 style="color:#166534;font-weight:700;margin:0 0 1rem;font-size:.95rem">📝 各入力項目の説明</h3>
@@ -280,7 +305,6 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       </tr>
     </tbody>
   </table>
-  <p style="font-size:.78rem;color:#6b7280;margin:.5rem 0 0">※ 記載データは各出典の公表時点の情報です。最新情報は各公的機関の公式サイトをご確認ください。</p>
 </div>
 <!-- r20-tool-links -->
 <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem 1.5rem;margin:2rem 0">
@@ -525,10 +549,9 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
     <div style="margin:24px auto;max-width:720px;padding:16px 20px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;">
       <p style="font-size:12px;font-weight:600;color:#94a3b8;text-align:center;margin:0 0 12px;letter-spacing:0.05em;">スポンサーリンク</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
-        <a href="https://px.a8.net/svt/ejp?a8mat=4B3WJA+86RVSA+3XCC+64C3M" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-flex;align-items:center;padding:8px 14px;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;font-size:13px;color:#334155;text-decoration:none;white-space:nowrap;">松井証券</a><img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=4B3WJA+86RVSA+3XCC+64C3M" alt="">
-        <a href="https://px.a8.net/svt/ejp?a8mat=4AX38J+38R9WQ+3M0+2N9S82" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-flex;align-items:center;padding:8px 14px;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;font-size:13px;color:#334155;text-decoration:none;white-space:nowrap;">Goomies DVD</a><img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4AX38J+38R9WQ+3M0+2N9S82" alt="">
-        <a href="https://px.a8.net/svt/ejp?a8mat=4B3WJ6+FQ9JMY+1LP8+BY642" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-flex;align-items:center;padding:8px 14px;background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;font-size:13px;color:#334155;text-decoration:none;white-space:nowrap;">日々の生活にハッピーをプラス！《ハピタス》</a><img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4B3WJ6+FQ9JMY+1LP8+BY642" alt="">
-      </div>
+    <a href="https://px.a8.net/svt/ejp?a8mat=4B3WJ6+FIIWRU+1IRY+1TKOKI" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-block;padding:5px 12px;background:#fff;border:1px solid #d1d5db;border-radius:20px;font-size:12px;color:#4b5563;text-decoration:none;white-space:nowrap;">ファイナンシャルアカデミー「お金の教養講座」</a><img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4B3WJ6+FIIWRU+1IRY+1TKOKI" alt="">
+    <a href="https://px.a8.net/svt/ejp?a8mat=4B3WJ8+4KDYAY+4JGQ+1NQUK2" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-block;padding:5px 12px;background:#fff;border:1px solid #d1d5db;border-radius:20px;font-size:12px;color:#4b5563;text-decoration:none;white-space:nowrap;">マネーフォワード クラウド開業届</a><img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=4B3WJ8+4KDYAY+4JGQ+1NQUK2" alt="">
+  </div>
     </div>
   </div>
 
@@ -1104,13 +1127,15 @@ document.addEventListener("DOMContentLoaded", restoreInputs);
 </div>
 <div style="text-align:center;padding:10px 16px 14px;background:#eef2ff;border-top:2px solid #c7d2fe;margin-top:8px">
 <a href="/blog/" style="color:#4f46e5;font-size:.85rem;font-weight:700">📖 マネー・育児・キャリアのコラムを読む →</a>
+<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px 18px;margin:20px 0" id="related-blog">
+  <p style="font-weight:800;font-size:.9rem;color:#1e293b;margin:0 0 10px">📚 関連コラム</p>
+  <ul style="margin:0;padding-left:0;list-style:none"><li style="margin:0 0 6px"><a href="/blog/nisa-ideco-hikaku/" style="color:#4f46e5;font-size:.88rem;text-decoration:none;">📖 NISAとiDeCoを徹底比較</a></li><li style="margin:0 0 6px"><a href="/blog/rogo-2000man-guide/" style="color:#4f46e5;font-size:.88rem;text-decoration:none;">📖 老後2,000万円問題の解決策</a></li><li style="margin:0 0 6px"><a href="/blog/iryohi-koujo-guide/" style="color:#4f46e5;font-size:.88rem;text-decoration:none;">📖 医療費控除の申請ガイド</a></li></ul>
+</div>
 </div>
 
 <div style="background:#f8faff;border:1px solid #e0e7ff;border-radius:.75rem;padding:1.25rem 1.5rem;margin:1.5rem auto;max-width:740px">
   <p style="font-weight:700;font-size:.9rem;margin:0 0 .75rem;color:#3730a3">📋 このツールの詳細</p>
   <p style="font-size:.875rem;color:#374151;line-height:1.8;margin:0 0 .5rem">本ツールは、不動産投資計算利回り・キャッシュフローをシミュレーションを手軽に利用できる無料Webサービスです。登録不要でブラウザから直接ご利用いただけます。</p>
-  <p style="font-size:.875rem;color:#374151;line-height:1.8;margin:0 0 .5rem">スマートフォン・タブレット・PCのすべてに対応したレスポンシブデザインです。入力データはブラウザ内のみで処理・保存され、外部サーバーに送信されることはありません。</p>
-  <p style="font-size:.875rem;color:#374151;line-height:1.8;margin:0">計算・診断の結果はあくまでも参考値です。重要な意思決定の際は専門家・公式機関にもご相談ください。このツールの利用は無料・無制限です。</p>
 </div>
 <section aria-labelledby="faq-h" class="bg-white rounded-2xl shadow-md p-4 mb-4" style="max-width:740px;margin-left:auto;margin-right:auto">
   <div style="background:#f0f4ff;border-radius:12px;padding:1.25rem 1.5rem;margin:1.5rem 0;border:1px solid #c7d7ff">
@@ -1122,12 +1147,12 @@ document.addEventListener("DOMContentLoaded", restoreInputs);
 </div>
 <h2 id="faq-h" style="font-size:1.05rem;font-weight:700;margin-bottom:12px;border-left:4px solid #4f46e5;padding-left:10px;">よくある質問</h2>
   <dl style="line-height:1.8;">
-    <dt style="font-weight:600;margin-top:12px;">Q: この計算ツールはどんな場面で役立ちますか？</dt>
-    <dd style="margin-left:16px;color:#374151;">不動産投資計算利回り・キャッシュフロに関する費用・数値を手軽に試算できます。複数パターンを試して比較検討にご活用ください。</dd>
-    <dt style="font-weight:600;margin-top:12px;">Q: 計算結果の精度はどのくらいですか？</dt>
-    <dd style="margin-left:16px;color:#374151;">一般的な基準値をもとにした目安です。重要な意思決定の際は専門家にもご相談ください。</dd>
-    <dt style="font-weight:600;margin-top:12px;">Q: スマートフォンでも使えますか？</dt>
-    <dd style="margin-left:16px;color:#374151;">はい、PC・スマートフォン・タブレットすべてに対応しています。登録不要・完全無料でご利用いただけます。</dd>
+    <dt style="font-weight:600;color:#1e293b;padding:8px 0 4px">Q. 不動産投資を始めるために必要な初期資金はいくらですか？</dt>
+    <dd style="font-size:.875rem;color:#475569;margin:0 0 12px;padding-left:12px;line-height:1.8">不動産投資の初期資金の目安として「区分マンション（ワンルーム）：物件価格の10〜20%が自己資金の目安（1,000〜3,000万円の物件なら100〜600万円）」「一棟アパート：物件価格の20〜30%が自己資金として一般的（5,000万円の物件なら1,000〜1,500万円）」があります。初期費用として「物件の頭金以外に不動産取得税・登記費用・仲介手数料・火災保険料等で物件価格の7〜10%程度が必要」です。フルローンも可能なケースはありますが、空室リスク・金利上昇リスクへの対応力が低下するため自己資金は多めに準備することをおすすめします。</dd>
+    <dt style="font-weight:600;color:#1e293b;padding:8px 0 4px">Q. 不動産投資の利回りの見方を教えてください。</dt>
+    <dd style="font-size:.875rem;color:#475569;margin:0 0 12px;padding-left:12px;line-height:1.8">不動産投資の利回りの種類と見方として「表面利回り（グロス利回り）：年間家賃収入 / 物件価格 × 100（%）・管理費・税金等のコストが含まれておらず実際の収益より高く見える」「実質利回り（ネット利回り）：（年間家賃収入 - 年間諸経費） / （物件価格 + 取得費用） × 100（%）・実際の手取り収益に近い」があります。都市部の区分マンションの実質利回りは3〜5%程度が目安とされています。表面利回りが高くても「修繕積立金・管理費・空室率・金利負担」を考慮した実質利回りで判断することが重要です。</dd>
+    <dt style="font-weight:600;color:#1e293b;padding:8px 0 4px">Q. 不動産投資のリスクと対策を教えてください。</dt>
+    <dd style="font-size:.875rem;color:#475569;margin:0 0 12px;padding-left:12px;line-height:1.8">不動産投資の主なリスクと対策として「空室リスク：立地・利便性の高い物件を選ぶ・管理会社の賃貸管理に任せる・家賃を相場より少し低めに設定して空室期間を短くする」「修繕リスク：修繕積立金を十分に確保する・築年数・設備の状態を購入前に確認する」「金利上昇リスク：変動金利の場合は金利上昇で返済額が増える・固定金利や繰上返済で対応する」「賃料下落リスク：人口が減少しにくいエリアを選ぶ・リノベーションで物件価値を維持する」があります。複数物件への分散投資も空室・修繕リスクの軽減に有効です。</dd>
   </dl>
 </section>
 <div style="background:#eef2ff;border-left:4px solid #4f46e5;border-radius:.5rem;padding:1rem 1.25rem;margin:1.5rem auto;max-width:760px;font-size:.875rem">
@@ -1151,24 +1176,19 @@ document.addEventListener("DOMContentLoaded", restoreInputs);
 <h2 style="font-size:1.125rem;font-weight:700;margin:0 0 1rem;color:#1e293b;border-left:4px solid #4f46e5;padding-left:10px">こんな方・シーンで役立ちます</h2>
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">
 <div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
-<div style="font-size:1.5rem;margin-bottom:.4rem">👨‍💼</div>
-<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">給与所得者の節税対策</div>
-<div style="font-size:.85rem;color:#64748b;line-height:1.7">iDeCoやふるさと納税、医療費控除を最大限活用して手取りを増やしたい会社員の方に。年収・扶養家族の状況を入力するだけで節税額の目安が分かります。</div>
+<div style="font-size:1.5rem;margin-bottom:.4rem">📈</div>
+<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">これから投資を始める方</div>
+<div style="font-size:.85rem;color:#64748b;line-height:1.7">NISAやiDeCoを活用して資産形成をスタートしたい方に。少額から始められる投資の方法と、最初に決めるべきポイントを整理できます。</div>
 </div>
 <div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
-<div style="font-size:1.5rem;margin-bottom:.4rem">👩‍👦</div>
-<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">子育て世帯の家計管理</div>
-<div style="font-size:.85rem;color:#64748b;line-height:1.7">教育費・保育費・習い事費用の将来見通しを立て、無理のない貯蓄計画を作りたい共働き家庭に。月々の支出を整理するきっかけになります。</div>
+<div style="font-size:1.5rem;margin-bottom:.4rem">💼</div>
+<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">ポートフォリオ見直し中の方</div>
+<div style="font-size:.85rem;color:#64748b;line-height:1.7">現在の資産配分を客観的に見直して、リスクとリターンのバランスを最適化したい方に。状況に合わせた配分の目安が分かります。</div>
 </div>
 <div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
-<div style="font-size:1.5rem;margin-bottom:.4rem">🏠</div>
-<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">住宅購入・マイホーム計画</div>
-<div style="font-size:.85rem;color:#64748b;line-height:1.7">頭金・月々の返済額・総支払額をシミュレーションして、無理のない住宅ローン計画を立てたい方に。金利変動のリスクも考慮できます。</div>
-</div>
-<div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
-<div style="font-size:1.5rem;margin-bottom:.4rem">📊</div>
-<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">資産運用・老後資金準備</div>
-<div style="font-size:.85rem;color:#64748b;line-height:1.7">NISAやiDeCoで積立投資を始めて、老後に必要な資産を計画的に形成したい方に。複利効果を視覚化して長期投資のモチベーションを維持できます。</div>
+<div style="font-size:1.5rem;margin-bottom:.4rem">🎯</div>
+<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">具体的な資産目標がある方</div>
+<div style="font-size:.85rem;color:#64748b;line-height:1.7">老後資産・住宅頭金・教育費などの目標金額に向けた積立プランを試算したい方に。目標達成に必要な月々の積立額を確認できます。</div>
 </div>
 </div>
 </div>
@@ -1176,23 +1196,10 @@ document.addEventListener("DOMContentLoaded", restoreInputs);
 <div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
 <div style="background:white;border-radius:16px;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.08)">
 <h2 style="font-size:1.05rem;font-weight:700;margin:0 0 1rem;border-left:4px solid #4f46e5;padding-left:10px;color:#1e293b">よくある質問（詳細）</h2>
-<div style="margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid #f1f5f9">
-<p style="font-size:.9rem;font-weight:700;color:#1e293b;margin:0 0 .5rem">Q: 税金や保険の計算はどの程度正確ですか？</p>
-<p style="font-size:.85rem;color:#475569;line-height:1.8;margin:0">A: 本ツールは公的機関発表の標準的な税率・係数を使用した参考計算ツールです。実際の税額は収入の種類・控除の適用有無・家族構成等によって変わります。正確な申告額は国税庁のe-Taxまたは税理士にご確認ください。</p>
+<div style="margin-top:12px;display:flex;flex-direction:column;gap:12px">
+<div style="border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px"><p style="font-weight:600;color:#1e293b;margin:0 0 6px">Q. 不動産投資と株式投資どちらが初心者に向いていますか？</p><p style="font-size:.875rem;color:#475569;line-height:1.8;margin:0">不動産投資と株式投資の比較として「不動産投資：レバレッジ（ローン）を使える・安定したキャッシュフロー・実物資産なのでインフレに強い・初期資金が大きい・流動性が低い（売買に時間がかかる）」「株式投資（NISA等）：少額から始められる・流動性が高い（すぐ売却可能）・専門知識なくても積立投資で長期運用可能・価格変動が激しい」があります。初心者で少額から始めたい場合はNISAでの積立投資、ある程度資金があり安定収入を求める場合は不動産投資という分け方が一般的です。</p></div>
+<div style="border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px"><p style="font-weight:600;color:#1e293b;margin:0 0 6px">Q. REITと現物不動産投資の違いは何ですか？</p><p style="font-size:.875rem;color:#475569;line-height:1.8;margin:0">REIT（不動産投資信託）と現物不動産投資の主な違いとして「REIT：証券取引所で売買できる（流動性が高い）・少額（数万円〜）から不動産に分散投資できる・管理の手間が不要・価格変動リスクあり（株式と相関する場合がある）」「現物不動産：レバレッジ（ローン）で大きな資産形成が可能・実物資産のため価格が安定しやすい・管理・修繕の手間がかかる・まとまった初期資金が必要」があります。REITは「不動産投資の感覚をつかみたい・少額から始めたい」方に向いており、現物不動産は「家賃収入で安定したキャッシュフローを作りたい」方に向いています。</p></div>
 </div>
-<div style="margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid #f1f5f9">
-<p style="font-size:.9rem;font-weight:700;color:#1e293b;margin:0 0 .5rem">Q: NISA・iDeCoの制度は変わりましたか？</p>
-<p style="font-size:.85rem;color:#475569;line-height:1.8;margin:0">A: 2024年1月から新NISAが始まり、年間投資枠が最大360万円に拡大されました。また非課税保有期間が無制限になりました。iDeCoの掛金上限も職業によって異なります。最新情報は金融庁・国税庁の公式サイトでご確認ください。</p>
-</div>
-<div style="margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid #f1f5f9">
-<p style="font-size:.9rem;font-weight:700;color:#1e293b;margin:0 0 .5rem">Q: 計算結果をFPや税理士に見せることはできますか？</p>
-<p style="font-size:.85rem;color:#475569;line-height:1.8;margin:0">A: はい、スクリーンショットやブラウザの印刷機能（PDF保存）で計算結果を保存してFP・税理士との相談資料としてご活用いただけます。専門家への相談時に現状を正確に伝えるうえで有効です。</p>
-</div>
-<div style="margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid #f1f5f9">
-<p style="font-size:.9rem;font-weight:700;color:#1e293b;margin:0 0 .5rem">Q: 副業収入がある場合の税計算はどうすればいいですか？</p>
-<p style="font-size:.85rem;color:#475569;line-height:1.8;margin:0">A: 副業収入（雑所得・事業所得）は確定申告が必要です。年間20万円を超える副業収入がある場合は翌年3月15日までに確定申告を行う必要があります。経費の計上方法は収入の種類によって異なりますので、国税庁のタックスアンサーを参考にしてください。</p>
-</div>
-
 </div>
 </div>
 <!-- r31-tool-notice -->
@@ -1224,41 +1231,14 @@ document.addEventListener("DOMContentLoaded", restoreInputs);
 <div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
 <div style="padding:1.25rem 1.5rem;background:#f0f9ff;border:1px solid #bae6fd;border-radius:.75rem">
 <h3 style="font-size:1rem;font-weight:700;margin:0 0 .75rem;color:#0c4a6e">ℹ️ このツールについて</h3>
-<p style="margin:0;font-size:.88rem;color:#0c4a6e;line-height:1.9">「不動産投資利回りシミュレーター」はAppADayCreatorが提供する無料Webツールです。お金・家計に関する情報を素早く手軽に確認できます。会員登録・アプリインストール不要で、ブラウザからすぐにご利用いただけます。すべての処理はブラウザ内で完結するため、入力した情報が外部サーバーに送信されることはなく、プライバシーも保護されます。スマートフォン・タブレット・PCのすべてに対応したレスポンシブデザインを採用し、外出先や通勤中でも快適にご利用いただけます。AppADayCreatorでは、日常生活のあらゆるシーンで役立つWebツールを400本以上無料で提供しています。金融・健康・育児・キャリア・旅行など幅広いカテゴリのツールをご活用ください。</p>
+<p style="margin:0;font-size:.88rem;color:#0c4a6e;line-height:1.9">「不動産投資利回りシミュレーター」はAppADayCreatorが提供する無料Webツールです。お金・家計に関する情報を素早く手軽に確認できます。会員登録・アプリインストール不要で、ブラウザからすぐにご利用いただけます。すべての処理はブラウザ内で完結するため、入力した情報が外部サーバーに送信されることはなく、プライバシーも保護されます。AppADayCreatorでは、日常生活のあらゆるシーンで役立つWebツールを400本以上無料で提供しています。金融・健康・育児・キャリア・旅行など幅広いカテゴリのツールをご活用ください。</p>
 </div>
 </div>
 <!-- r31-extra-guide -->
 <div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
 <div style="background:white;border-radius:16px;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.06)">
-<h2 style="font-size:1.05rem;font-weight:700;margin:0 0 1rem;border-left:4px solid #10b981;padding-left:10px;color:#1e293b">お金・家計ツールの活用ガイド</h2>
-<p style="font-size:.88rem;color:#475569;line-height:1.9;margin:0 0 .75rem">
-本ツール「不動産投資利回りシミュレーター」は、お金・家計に関連する情報の確認・計算・診断をブラウザ上で手軽に行えるように設計されています。
-初回利用時にはまずフォームや入力欄に必要な情報を入力し、「計算」「診断」「確認」などのボタンを押してください。
-結果はリアルタイムで表示され、条件を変えながら何度でも再計算・再診断をお試しいただけます。
-ご不明な点があった場合は、各入力項目の横にある説明文や「？」アイコンをご確認ください。
-</p>
-<p style="font-size:.88rem;color:#475569;line-height:1.9;margin:0 0 .75rem">
-スマートフォンからのご利用でも、PC同様にすべての機能をお使いいただけます。
-スマートフォンのホーム画面に本ページを追加（ブックマーク）すれば、アプリのように素早くアクセスできます。
-ブラウザの印刷機能（Ctrl+P または右上メニュー）を使えば、結果をPDF形式で保存・印刷することが可能です。
-計算結果のスクリーンショットを家族・友人・専門家と共有するのもお勧めです。
-</p>
-<h3 style="font-size:.95rem;font-weight:700;margin:1rem 0 .6rem;color:#1e293b">AppADayCreator のツールの特徴</h3>
-<ul style="margin:0;padding-left:1.25rem;font-size:.88rem;color:#475569;line-height:2.1">
-<li><strong>完全無料・登録不要</strong> — アカウント作成・メールアドレス登録なしで今すぐご利用いただけます</li>
-<li><strong>プライバシー完全保護</strong> — 入力したデータはすべてブラウザ内で処理され、外部サーバーには一切送信されません</li>
-<li><strong>マルチデバイス完全対応</strong> — スマートフォン・タブレット・PCすべてで最適なレイアウトで表示されます</li>
-<li><strong>定期的なコンテンツ更新</strong> — 法改正・制度変更・最新データに対応した情報を随時更新しています</li>
-<li><strong>広告による持続的な無料運営</strong> — 広告収入によって運営しているため、ユーザーの皆様は永続的に無料でご利用いただけます</li>
-<li><strong>400本以上のツールを無料提供</strong> — お金・健康・育児・キャリア・旅行・住まいなど幅広いジャンルのツールをご活用ください</li>
-</ul>
 <h3 style="font-size:.95rem;font-weight:700;margin:1.25rem 0 .6rem;color:#1e293b">関連ツールのご紹介</h3>
-<p style="font-size:.88rem;color:#475569;line-height:1.9;margin:0">
-AppADayCreatorでは、本ツール以外にもお金・家計カテゴリの便利なツールを多数ご提供しています。
-家計管理・健康記録・育児サポート・キャリア計画・旅行準備・住まいの整理など、日常生活のさまざまなシーンで役立つツールがそろっています。
-ぜひトップページから他のツールもご活用ください。すべて完全無料・登録不要でお使いいただけます。
-本ツールへのご意見・ご感想はお問い合わせページからお送りいただけます。皆様のフィードバックが品質改善につながります。
-</p>
+
 </div>
 </div>
 
@@ -1287,5 +1267,20 @@ AppADayCreatorでは、本ツール以外にもお金・家計カテゴリの便
 <footer style="margin-top:2rem;padding:1rem;background:#f9fafb;border-top:1px solid #e5e7eb;font-size:.76rem;color:#9ca3af;text-align:center">
 <p style="margin:0">本ツールの計算結果・情報はあくまで参考値です。実際の数値は条件により異なります。重要な意思決定には専門家または公的機関への相談をご検討ください。</p>
 </footer>
+<div style="text-align:center;margin:20px auto;max-width:728px;padding:0 16px">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
+</div>
+<!-- r31-cookie-banner -->
+<div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#1e293b;color:#f1f5f9;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;z-index:9999;font-size:.85rem;box-shadow:0 -2px 10px rgba(0,0,0,.3)">
+<div>当サイトはCookieおよびGoogle Analyticsを使用しています。<a href="/privacy-policy.html" style="color:#60a5fa;text-decoration:underline">プライバシーポリシー</a>をご確認ください。</div>
+<button onclick="document.getElementById('cookie-banner').style.display='none';window.grantConsent && window.grantConsent()" style="background:#3b82f6;color:#fff;border:none;padding:.5rem 1.25rem;border-radius:.375rem;font-size:.85rem;font-weight:600;cursor:pointer;white-space:nowrap">同意して閉じる</button>
+</div>
+<script>if(localStorage.getItem('cookie-consent'))document.getElementById('cookie-banner').style.display='none'</script>
+<!-- r46-org-footer -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:6px 0 4px;background:#f8fafc;border-top:1px solid #e5e7eb;">
+  運営: <a href="https://appadaycreator.com/" style="color:#9ca3af;text-decoration:none;">AppADayCreator</a> | <a href="https://tech-and-brace.co.jp/" rel="noopener" style="color:#9ca3af;text-decoration:none;">株式会社Tech&amp;Brace</a>
+</div>
+<script src="/assets/consent-mode.js"></script>
 </body>
 </html>
