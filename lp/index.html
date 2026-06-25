@@ -141,6 +141,37 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans',san
 .faq-a{display:none;padding:0 20px 18px;font-size:.875rem;color:#475569;line-height:1.85;border-top:1px solid #f1f5f9}
 .faq-item.open .faq-a{display:block}
 
+/* MOCK DASHBOARD */
+.mock-dash{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:24px;max-width:900px;margin:0 auto 36px;text-align:left}
+.mock-dash-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.15);flex-wrap:wrap;gap:8px}
+.mock-dash-ttl{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.9)}
+.mock-badge-done{background:#059669;color:#fff;padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;flex-shrink:0}
+.mock-dash-body{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.mock-mets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mock-m{background:rgba(255,255,255,.1);border-radius:10px;padding:12px;text-align:center}
+.mock-m.em{background:rgba(5,150,105,.25);border:1px solid rgba(5,150,105,.45)}
+.mock-m-lbl{font-size:.67rem;color:rgba(255,255,255,.65);margin-bottom:4px;display:block}
+.mock-m-val{font-size:1.12rem;font-weight:800;color:#fff;display:block}
+.mock-m-val.g{color:#34d399}
+.mock-chart-wrap{background:rgba(255,255,255,.06);border-radius:10px;padding:14px}
+.mock-chart-ttl{font-size:.7rem;color:rgba(255,255,255,.62);margin-bottom:8px}
+#preview-chart{max-height:155px!important}
+@media(max-width:700px){.mock-dash-body{grid-template-columns:1fr}.mock-mets{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.mock-mets{grid-template-columns:repeat(2,1fr)}}
+
+/* YIELD TABLE */
+.yield-table-sec{background:#fff;padding:64px 24px}
+.yield-table{width:100%;border-collapse:collapse;font-size:.875rem;margin-top:0}
+.yield-table th{background:#1e3a8a;color:#fff;padding:12px 16px;font-weight:700;text-align:left}
+.yield-table th:not(:first-child){text-align:center}
+.yield-table td{padding:12px 16px;border-bottom:1px solid #e2e8f0;color:#374151}
+.yield-table td:not(:first-child){text-align:center;font-weight:600}
+.yield-table tr:hover{background:#f8fafc}
+.yield-table .rate-high{color:#059669}
+.yield-table .rate-mid{color:#2563EB}
+.yield-table .rate-low{color:#64748b}
+.yield-table-wrap{overflow-x:auto;border-radius:12px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
+
 /* CTA BOTTOM */
 .cta-bottom{position:relative;background:url('../assets/photos/photo_05.jpg') center/cover no-repeat;padding:80px 24px;text-align:center}
 .cta-ov{position:absolute;inset:0;background:rgba(10,20,50,.75)}
@@ -410,12 +441,104 @@ footer{background:#1f2937;color:#9ca3af;text-align:center;padding:2rem 1rem;font
 <!-- PREVIEW -->
 <section class="preview-sec">
   <div class="sec-inner">
-    <h2 class="preview-title">実際の計算ツールはこちら</h2>
-    <p class="preview-sub">シンプルな入力フォームで、プロ水準の不動産投資分析が無料で行えます</p>
-    <div class="preview-frame">
-      <img src="../assets/photos/photo_02.jpg" alt="不動産投資シミュレーターのプレビュー">
+    <h2 class="preview-title">組み合わせひとつで変わるキャッシュフロー</h2>
+    <p class="preview-sub">5項目を入力するだけで、下記のようなプロ水準のダッシュボードが無料で表示されます</p>
+    <div class="mock-dash">
+      <div class="mock-dash-hdr">
+        <span class="mock-dash-ttl">📊 シミュレーション結果（例：物件価格2,000万円 / 月額家賃10万円）</span>
+        <span class="mock-badge-done">✓ 計算完了</span>
+      </div>
+      <div class="mock-dash-body">
+        <div class="mock-mets">
+          <div class="mock-m">
+            <span class="mock-m-lbl">表面利回り</span>
+            <span class="mock-m-val">6.00%</span>
+          </div>
+          <div class="mock-m em">
+            <span class="mock-m-lbl">実質利回り</span>
+            <span class="mock-m-val g">4.32%</span>
+          </div>
+          <div class="mock-m em">
+            <span class="mock-m-lbl">月間キャッシュフロー</span>
+            <span class="mock-m-val g">+13,571円</span>
+          </div>
+          <div class="mock-m">
+            <span class="mock-m-lbl">年間キャッシュフロー</span>
+            <span class="mock-m-val g">162,857円</span>
+          </div>
+          <div class="mock-m">
+            <span class="mock-m-lbl">自己資金ROI</span>
+            <span class="mock-m-val">13.5%</span>
+          </div>
+          <div class="mock-m">
+            <span class="mock-m-lbl">投資回収期間</span>
+            <span class="mock-m-val">21.5年</span>
+          </div>
+        </div>
+        <div class="mock-chart-wrap">
+          <div class="mock-chart-ttl">📈 20年間 累積キャッシュフロー推移（万円）</div>
+          <canvas id="preview-chart"></canvas>
+        </div>
+      </div>
     </div>
     <a href="../" class="btn-preview">ツールを無料で使ってみる →</a>
+  </div>
+</section>
+
+<!-- YIELD COMPARISON TABLE -->
+<section class="yield-table-sec">
+  <div class="sec-inner">
+    <span class="tag-blue" style="display:block;text-align:center;margin-bottom:10px">利回りの目安</span>
+    <h2 class="sec-title">不動産種別ごとの利回り水準</h2>
+    <p class="sec-sub">投資判断の参考として、物件タイプ別の利回り相場を把握しておきましょう</p>
+    <div class="yield-table-wrap">
+      <table class="yield-table">
+        <thead>
+          <tr>
+            <th>物件タイプ</th>
+            <th>表面利回り目安</th>
+            <th>実質利回り目安</th>
+            <th>特徴</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>都市部 区分マンション</strong></td>
+            <td class="rate-mid">4〜6%</td>
+            <td class="rate-low">2〜4%</td>
+            <td>流動性高・安定需要・価格帯大</td>
+          </tr>
+          <tr>
+            <td><strong>地方 区分マンション</strong></td>
+            <td class="rate-high">6〜10%</td>
+            <td class="rate-mid">3〜6%</td>
+            <td>利回り高め・空室リスク要注意</td>
+          </tr>
+          <tr>
+            <td><strong>一棟アパート（木造）</strong></td>
+            <td class="rate-high">8〜12%</td>
+            <td class="rate-high">5〜8%</td>
+            <td>高利回り・修繕コスト大・分散効果</td>
+          </tr>
+          <tr>
+            <td><strong>一棟マンション（RC造）</strong></td>
+            <td class="rate-mid">6〜9%</td>
+            <td class="rate-mid">3〜6%</td>
+            <td>耐久性高・融資評価高・初期投資大</td>
+          </tr>
+          <tr>
+            <td><strong>戸建て投資</strong></td>
+            <td class="rate-high">8〜15%</td>
+            <td class="rate-high">5〜10%</td>
+            <td>高利回り・ニッチ市場・管理手間</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.75rem;color:#94a3b8;margin-top:12px;text-align:center">※利回りは立地・築年数・経営状況により大きく異なります。本シミュレーターで実際の数値をご確認ください。</p>
+    <div style="text-align:center;margin-top:28px">
+      <a href="../" class="btn-hero">自分の物件をシミュレーションする →</a>
+    </div>
   </div>
 </section>
 
@@ -567,6 +690,30 @@ footer{background:#1f2937;color:#9ca3af;text-align:center;padding:2rem 1rem;font
       scales:{
         x:{ticks:{color:'rgba(255,255,255,0.65)',font:{size:10}},grid:{color:'rgba(255,255,255,0.1)'}},
         y:{ticks:{color:'rgba(255,255,255,0.65)',font:{size:10},callback:function(v){return v+'万'}},grid:{color:'rgba(255,255,255,0.1)'}}
+      }
+    }
+  });
+})();
+
+// Preview chart
+(function(){
+  var ctx = document.getElementById('preview-chart');
+  if(!ctx) return;
+  var lbl = ['2年','4年','6年','8年','10年','12年','14年','16年','18年','20年'];
+  var dat = [32.6,65.2,97.8,130.4,163,195.6,228.2,260.8,293.4,326];
+  new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels:lbl,
+      datasets:[{data:dat,backgroundColor:'rgba(52,211,153,.65)',borderColor:'rgba(52,211,153,1)',borderWidth:1,borderRadius:4}]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.y+'万円';}}}},
+      scales:{
+        x:{ticks:{color:'rgba(255,255,255,.58)',font:{size:9}},grid:{color:'rgba(255,255,255,.05)'}},
+        y:{ticks:{color:'rgba(255,255,255,.58)',font:{size:9},callback:function(v){return v+'万'}},grid:{color:'rgba(255,255,255,.08)'}}
       }
     }
   });
