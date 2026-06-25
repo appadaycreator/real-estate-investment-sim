@@ -1,0 +1,24 @@
+{
+  "name": "real-estate-investment-sim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appadaycreator/real-estate-investment-sim.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/appadaycreator/real-estate-investment-sim/issues"
+  },
+  "homepage": "https://github.com/appadaycreator/real-estate-investment-sim#readme",
+  "dependencies": {
+    "playwright": "^1.60.0"
+  }
+}

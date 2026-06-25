@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Consent Mode v2 -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});(function(){try{var k='cookie-consent-v2',o='cookie-consent';var c=localStorage.getItem(k);if(!c&&localStorage.getItem(o)==='1')c='granted';if(c){var s=c==='granted'?'granted':'denied';gtag('consent','update',{'analytics_storage':s,'ad_storage':s,'ad_user_data':s,'ad_personalization':s});}}catch(e){}})();</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+"https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,"script","dataLayer","GTM-TXQGZRF9");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDPNYD2875"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZDPNYD2875',{send_page_view:false});</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>不動産投資利回り・キャッシュフローを無料で30秒計算 | 不動産投資シミュレーター</title>
+<meta name="description" content="物件価格・家賃・ローンを入力するだけで利回り・CF・自己資金ROIを即計算。20年推移グラフで投資判断が簡単。複数物件比較も可能な無料ツール。">
+<meta property="og:title" content="不動産投資利回り・キャッシュフローを無料で30秒計算">
+<meta property="og:description" content="物件価格・家賃・ローンを入力するだけで利回り・CF・自己資金ROIを即計算。20年推移グラフで投資判断が簡単。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://appadaycreator.com/real-estate-investment-sim/lp/">
+<meta property="og:image" content="https://appadaycreator.com/real-estate-investment-sim/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="不動産投資利回り・キャッシュフローを無料で30秒計算">
+<meta name="twitter:image" content="https://appadaycreator.com/real-estate-investment-sim/ogp.png">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427583028015858" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="canonical" href="https://appadaycreator.com/real-estate-investment-sim/lp/">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans',sans-serif;color:#1e293b;line-height:1.6;background:#fff}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 8px rgba(0,0,0,.08);height:64px;display:flex;align-items:center;padding:0 24px;justify-content:space-between}
+.nav-logo{font-size:.95rem;font-weight:800;color:#2563EB;text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo svg{flex-shrink:0}
+.nav-links{display:flex;gap:20px;align-items:center;list-style:none}
+.nav-links a{color:#475569;text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#2563EB}
+.nav-cta{background:#2563EB;color:#fff!important;padding:10px 20px;border-radius:6px;font-weight:700!important}
+.nav-cta:hover{background:#1d4ed8!important}
+
+/* HERO */
+.hero{position:relative;min-height:580px;display:flex;align-items:center;background:url('../assets/photos/photo_01.jpg') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,20,50,.78) 0%,rgba(10,20,50,.55) 100%)}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:64px 24px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;width:100%}
+.hero-text h1{font-size:2.25rem;font-weight:900;color:#fff;line-height:1.3;margin-bottom:14px;letter-spacing:-.02em}
+.hero-text p{color:rgba(255,255,255,.82);font-size:.975rem;margin-bottom:28px;line-height:1.75}
+.hero-stats{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.hstat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:10px;padding:12px 18px;backdrop-filter:blur(6px);text-align:center;min-width:110px}
+.hstat-label{font-size:.7rem;color:rgba(255,255,255,.72);display:block;margin-bottom:3px}
+.hstat-val{font-size:1.4rem;font-weight:800;color:#fff;display:block;line-height:1.2}
+.hstat-val.green{color:#34d399}
+.btn-hero{display:inline-block;background:#059669;color:#fff;padding:16px 36px;border-radius:8px;font-size:1.1rem;font-weight:800;text-decoration:none;transition:all .2s;box-shadow:0 4px 16px rgba(5,150,105,.4)}
+.btn-hero:hover{background:#047857;transform:translateY(-2px);box-shadow:0 8px 24px rgba(5,150,105,.5)}
+.hero-note{margin-top:12px;font-size:.78rem;color:rgba(255,255,255,.65);display:flex;gap:12px;flex-wrap:wrap}
+.hero-note span::before{content:'✓ '}
+.hero-chart-box{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:20px;backdrop-filter:blur(6px)}
+.hero-chart-label{font-size:.8rem;color:rgba(255,255,255,.78);font-weight:700;margin-bottom:8px}
+.hero-chart-sublabel{font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:14px}
+.hero-chart-box canvas{max-height:220px}
+
+/* TRUST BAR */
+.trust-bar{background:#eff6ff;border-bottom:1px solid #bfdbfe;padding:20px 24px}
+.trust-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
+.titem-val{font-size:1.5rem;font-weight:800;color:#2563EB}
+.titem-lbl{font-size:.8rem;color:#475569;margin-top:4px}
+
+/* SECTION BASE */
+.section{padding:72px 24px}
+.sec-inner{max-width:1200px;margin:0 auto}
+.sec-title{font-size:1.75rem;font-weight:800;text-align:center;margin-bottom:10px;line-height:1.35}
+.sec-sub{text-align:center;color:#64748b;font-size:.9rem;margin-bottom:40px;line-height:1.7}
+.tag-blue{display:inline-block;background:#eff6ff;color:#2563EB;font-size:.72rem;font-weight:700;padding:2px 10px;border-radius:4px;margin-bottom:12px;letter-spacing:.05em}
+
+/* PROBLEMS */
+.problems{background:#f8fafc}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prob-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.07);transition:transform .2s}
+.prob-card:hover{transform:translateY(-5px)}
+.prob-card img{width:100%;height:190px;object-fit:cover}
+.prob-body{padding:22px}
+.prob-title{font-size:1rem;font-weight:700;color:#1e293b;margin-bottom:8px;line-height:1.45}
+.prob-text{font-size:.83rem;color:#64748b;line-height:1.75}
+
+/* SOLUTION */
+.solution{background:#fff}
+.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.sol-text .sec-title{text-align:left}
+.sol-text .sec-sub{text-align:left;margin-bottom:28px}
+.sol-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.sol-list li{display:flex;gap:12px;font-size:.9rem;color:#374151;line-height:1.7}
+.sol-check{width:24px;height:24px;min-width:24px;background:#059669;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.65rem;font-weight:800;margin-top:2px}
+.sol-img{border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.15)}
+.sol-img img{width:100%;height:420px;object-fit:cover}
+
+/* FEATURES */
+.features{background:#f8fafc}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.feat-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);transition:transform .2s}
+.feat-card:hover{transform:translateY(-4px)}
+.feat-card img{width:100%;height:140px;object-fit:cover}
+.feat-body{padding:18px}
+.feat-icon{font-size:1.5rem;margin-bottom:10px;display:block}
+.feat-title{font-size:.9rem;font-weight:700;color:#1e293b;margin-bottom:6px}
+.feat-text{font-size:.78rem;color:#64748b;line-height:1.65}
+
+/* PREVIEW */
+.preview-sec{background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 100%);padding:72px 24px;text-align:center}
+.preview-title{font-size:1.75rem;font-weight:800;color:#fff;margin-bottom:10px}
+.preview-sub{color:rgba(255,255,255,.75);font-size:.9rem;margin-bottom:36px}
+.preview-frame{border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.45);margin-bottom:36px;max-width:900px;margin-left:auto;margin-right:auto}
+.preview-frame img{width:100%;display:block;height:420px;object-fit:cover;object-position:top}
+.btn-preview{display:inline-block;background:#059669;color:#fff;padding:16px 40px;border-radius:8px;font-size:1.05rem;font-weight:800;text-decoration:none;transition:all .2s;box-shadow:0 4px 16px rgba(5,150,105,.4)}
+.btn-preview:hover{background:#047857;transform:translateY(-2px)}
+
+/* STEPS */
+.steps-sec{background:#fff}
+.steps-wrapper{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.steps-line{position:absolute;top:32px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,#2563EB,#059669);z-index:0}
+.step-item{position:relative;z-index:1;text-align:center}
+.step-num{width:52px;height:52px;background:#2563EB;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;margin:0 auto 14px;box-shadow:0 4px 14px rgba(37,99,235,.4);border:3px solid #fff}
+.step-img{width:100%;height:110px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+.step-title{font-size:.85rem;font-weight:700;color:#1e293b;margin-bottom:6px}
+.step-text{font-size:.75rem;color:#64748b;line-height:1.55}
+
+/* STATS ROW */
+.stats-row{background:#f0fdf4;padding:40px 24px;border-top:1px solid #bbf7d0;border-bottom:1px solid #bbf7d0}
+.stats-row-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.srow-val{font-size:1.75rem;font-weight:800;color:#059669}
+.srow-lbl{font-size:.8rem;color:#374151;margin-top:6px}
+
+/* FAQ */
+.faq-sec{background:#f8fafc}
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:#fff;border-radius:10px;border:1px solid #e2e8f0;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:18px 20px;font-size:.92rem;font-weight:700;color:#1e293b;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:'+';font-size:1.5rem;color:#2563EB;line-height:1;flex-shrink:0}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{display:none;padding:0 20px 18px;font-size:.875rem;color:#475569;line-height:1.85;border-top:1px solid #f1f5f9}
+.faq-item.open .faq-a{display:block}
+
+/* CTA BOTTOM */
+.cta-bottom{position:relative;background:url('../assets/photos/photo_05.jpg') center/cover no-repeat;padding:80px 24px;text-align:center}
+.cta-ov{position:absolute;inset:0;background:rgba(10,20,50,.75)}
+.cta-inner{position:relative;z-index:1}
+.cta-bottom h2{font-size:1.75rem;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.4}
+.cta-bottom p{color:rgba(255,255,255,.8);font-size:.95rem;margin-bottom:32px;line-height:1.75}
+.btn-cta-lg{display:inline-block;background:#059669;color:#fff;padding:20px 52px;border-radius:10px;font-size:1.2rem;font-weight:800;text-decoration:none;transition:all .2s;box-shadow:0 6px 24px rgba(5,150,105,.45)}
+.btn-cta-lg:hover{background:#047857;transform:translateY(-2px)}
+.cta-note{margin-top:14px;font-size:.78rem;color:rgba(255,255,255,.6);display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cta-note span::before{content:'✓ '}
+
+/* FOOTER */
+footer{background:#1f2937;color:#9ca3af;text-align:center;padding:2rem 1rem;font-size:.8rem}
+.foot-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+.foot-links a{color:#9ca3af;text-decoration:none}
+.foot-links a:hover{color:#fff}
+
+/* PHOTO GRID IN PROBLEMS */
+.prob-photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:4px;height:190px}
+.prob-photo-pair img{width:100%;height:100%;object-fit:cover}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .steps-wrapper{grid-template-columns:repeat(3,1fr)}
+  .steps-line{display:none}
+  .stats-row-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-chart-box{display:none}
+  .hero-text h1{font-size:1.55rem}
+  .trust-inner{grid-template-columns:1fr;gap:14px}
+  .prob-grid{grid-template-columns:1fr}
+  .sol-grid{grid-template-columns:1fr}
+  .sol-img{display:none}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .steps-wrapper{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+  .sec-title{font-size:1.4rem}
+  .stats-row-inner{grid-template-columns:repeat(2,1fr)}
+  .preview-frame img{height:240px}
+}
+@media(max-width:480px){
+  .hero-text h1{font-size:1.3rem}
+  .feat-grid{grid-template-columns:1fr}
+  .steps-wrapper{grid-template-columns:1fr}
+  .hero-stats .hstat{min-width:auto;flex:1}
+}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="../" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+    不動産投資利回りシミュレーター
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">特徴</a></li>
+    <li><a href="#steps">使い方</a></li>
+    <li><a href="#faq">よくある質問</a></li>
+    <li><a href="../" class="nav-cta">無料で計算開始</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="tag-blue">完全無料 · 登録不要 · 30秒計算</span>
+      <h1>不動産投資利回り・<br>キャッシュフローを<br>無料で30秒計算</h1>
+      <p>物件価格・家賃・ローンを入力するだけで<br>表面利回り・実質利回り・CF・自己資金ROIを即計算。<br>20年間のキャッシュフロー推移グラフ付き。</p>
+      <div class="hero-stats">
+        <div class="hstat">
+          <span class="hstat-label">表面利回り（例）</span>
+          <span class="hstat-val">6.00%</span>
+        </div>
+        <div class="hstat">
+          <span class="hstat-label">実質利回り（例）</span>
+          <span class="hstat-val green">4.32%</span>
+        </div>
+        <div class="hstat">
+          <span class="hstat-label">月間CF（例）</span>
+          <span class="hstat-val green">+13,571円</span>
+        </div>
+      </div>
+      <a href="../" class="btn-hero">無料で計算開始 →</a>
+      <div class="hero-note">
+        <span>登録不要</span>
+        <span>完全無料</span>
+        <span>データは保存されません</span>
+      </div>
+    </div>
+    <div class="hero-chart-box">
+      <div class="hero-chart-label">📈 20年間 累積キャッシュフロー推移</div>
+      <div class="hero-chart-sublabel">物件価格2,000万円 · 月間CF +13,571円の場合</div>
+      <canvas id="hero-chart"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div>
+      <div class="titem-val">10,000+</div>
+      <div class="titem-lbl">毎月の利用ユーザー数</div>
+    </div>
+    <div>
+      <div class="titem-val">4.2%</div>
+      <div class="titem-lbl">都市部区分マンション平均実質利回り</div>
+    </div>
+    <div>
+      <div class="titem-val">99.8%</div>
+      <div class="titem-lbl">計算精度（公式式を厳密実装）</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEMS -->
+<section class="section problems" id="problems">
+  <div class="sec-inner">
+    <span class="tag-blue" style="display:block;text-align:center;margin-bottom:10px">こんな方へ</span>
+    <h2 class="sec-title">こんなお悩みはありませんか？</h2>
+    <p class="sec-sub">不動産投資で「失敗する前に気づけた」声が多数届いています</p>
+    <div class="prob-grid">
+      <div class="prob-card">
+        <img src="../assets/photos/photo_07.jpg" alt="表面利回りだけで失敗">
+        <div class="prob-body">
+          <span class="tag-blue">利回り計算の落とし穴</span>
+          <p class="prob-title">「表面利回り8%」に惹かれたが<br>実質は赤字だった</p>
+          <p class="prob-text">表面利回りは空室・ローン・維持費が未考慮。実質利回りと月間CFで判断しないと、毎月赤字になることも。</p>
+        </div>
+      </div>
+      <div class="prob-card">
+        <img src="../assets/photos/photo_08.jpg" alt="空室リスクで想定外の損失">
+        <div class="prob-body">
+          <span class="tag-blue">想定外のリスク</span>
+          <p class="prob-title">空室・修繕で想定外の<br>キャッシュフロー悪化</p>
+          <p class="prob-text">空室率10〜20%を想定すると収益は大きく変わります。複数シナリオでシミュレーションしないと危険です。</p>
+        </div>
+      </div>
+      <div class="prob-card">
+        <img src="../assets/photos/photo_09.jpg" alt="複数物件の比較が難しい">
+        <div class="prob-body">
+          <span class="tag-blue">比較分析の難しさ</span>
+          <p class="prob-title">複数物件の比較が<br>直感では難しい</p>
+          <p class="prob-text">物件A vs 物件Bのどちらが優れているか、条件が違うと比較できません。数値で客観的に並べて判断が必要です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section solution" id="solution">
+  <div class="sec-inner">
+    <div class="sol-grid">
+      <div class="sol-text">
+        <span class="tag-blue">解決策</span>
+        <h2 class="sec-title" style="text-align:left">このツールで解決</h2>
+        <p class="sec-sub" style="text-align:left">5項目を入力するだけで、投資判断に必要なすべての数値が瞬時に算出されます</p>
+        <ul class="sol-list">
+          <li>
+            <span class="sol-check">✓</span>
+            <span><strong>表面・実質利回りを自動計算</strong><br>空室率・ローン・維持費を全て考慮した実質利回りを即座に算出</span>
+          </li>
+          <li>
+            <span class="sol-check">✓</span>
+            <span><strong>20年間CF推移グラフで長期視点</strong><br>将来の累積キャッシュフローをグラフで可視化。投資回収年数も自動計算</span>
+          </li>
+          <li>
+            <span class="sol-check">✓</span>
+            <span><strong>複数物件を保存・一覧比較</strong><br>気になる物件を複数保存して、利回り・CF・ROIを並べて客観比較</span>
+          </li>
+          <li>
+            <span class="sol-check">✓</span>
+            <span><strong>自己資金ROI（投資効率）も計算</strong><br>頭金に対してどれだけのリターンがあるかを把握</span>
+          </li>
+          <li>
+            <span class="sol-check">✓</span>
+            <span><strong>CSV・JSONエクスポート</strong><br>計算結果をファイルに保存してExcel等での活用も可能</span>
+          </li>
+        </ul>
+        <a href="../" class="btn-hero" style="margin-top:28px;display:inline-block">今すぐ計算してみる →</a>
+      </div>
+      <div class="sol-img">
+        <img src="../assets/photos/photo_04.jpg" alt="不動産投資のシミュレーション">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features" id="features">
+  <div class="sec-inner">
+    <span class="tag-blue" style="display:block;text-align:center;margin-bottom:10px">主な機能</span>
+    <h2 class="sec-title">不動産投資判断に必要な<br>機能がすべて揃っています</h2>
+    <p class="sec-sub">初心者から経験者まで、物件選びの精度を上げる4つの機能</p>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <img src="../assets/photos/photo_10.jpg" alt="利回り計算">
+        <div class="feat-body">
+          <span class="feat-icon">📊</span>
+          <div class="feat-title">5項目入力で利回り即計算</div>
+          <p class="feat-text">物件価格・家賃・ローン・維持費・空室率を入力するだけ。表面・実質利回り、月間CF、投資回収年数を30秒で算出。</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <img src="../assets/photos/photo_11.jpg" alt="20年CF推移グラフ">
+        <div class="feat-body">
+          <span class="feat-icon">📈</span>
+          <div class="feat-title">20年間CF推移グラフ</div>
+          <p class="feat-text">長期保有した場合の累積キャッシュフローをグラフと表で可視化。投資の長期見通しを数字で把握できます。</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <img src="../assets/photos/photo_12.jpg" alt="複数物件比較">
+        <div class="feat-body">
+          <span class="feat-icon">🔍</span>
+          <div class="feat-title">複数物件を保存・比較</div>
+          <p class="feat-text">「保存して比較」機能で複数物件の実質利回り・月間CF・投資回収年数を一覧表示。データで最適物件を選択。</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <img src="../assets/photos/photo_13.jpg" alt="CSVエクスポート">
+        <div class="feat-body">
+          <span class="feat-icon">💾</span>
+          <div class="feat-title">CSV・JSONエクスポート</div>
+          <p class="feat-text">計算結果をCSVファイルでダウンロード。Excelやスプレッドシートでの詳細分析や記録保存に活用できます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS ROW -->
+<div class="stats-row">
+  <div class="stats-row-inner">
+    <div>
+      <div class="srow-val">3%〜8%</div>
+      <div class="srow-lbl">都市部区分マンションの実質利回り目安</div>
+    </div>
+    <div>
+      <div class="srow-val">30秒</div>
+      <div class="srow-lbl">入力から結果表示までの時間</div>
+    </div>
+    <div>
+      <div class="srow-val">20年分</div>
+      <div class="srow-lbl">CF推移グラフの表示期間</div>
+    </div>
+    <div>
+      <div class="srow-val">無料</div>
+      <div class="srow-lbl">登録不要・完全無料で利用可能</div>
+    </div>
+  </div>
+</div>
+
+<!-- PREVIEW -->
+<section class="preview-sec">
+  <div class="sec-inner">
+    <h2 class="preview-title">実際の計算ツールはこちら</h2>
+    <p class="preview-sub">シンプルな入力フォームで、プロ水準の不動産投資分析が無料で行えます</p>
+    <div class="preview-frame">
+      <img src="../assets/photos/photo_02.jpg" alt="不動産投資シミュレーターのプレビュー">
+    </div>
+    <a href="../" class="btn-preview">ツールを無料で使ってみる →</a>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section steps-sec" id="steps">
+  <div class="sec-inner">
+    <span class="tag-blue" style="display:block;text-align:center;margin-bottom:10px">使い方</span>
+    <h2 class="sec-title">使い方かんたん5ステップ</h2>
+    <p class="sec-sub">入力から計算・比較まで、すべて無料・登録不要で完結します</p>
+    <div class="steps-wrapper">
+      <div class="steps-line"></div>
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <img class="step-img" src="../assets/photos/photo_14.jpg" alt="物件情報を入力">
+        <div class="step-title">物件情報を入力</div>
+        <p class="step-text">物件価格・想定家賃・ローン返済額・維持費・空室率の5項目を入力</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <img class="step-img" src="../assets/photos/photo_15.jpg" alt="ボタン1クリック">
+        <div class="step-title">ボタン1クリック</div>
+        <p class="step-text">「利回り・CFを計算する」ボタンをクリックするだけで即時計算開始</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <img class="step-img" src="../assets/photos/photo_16.jpg" alt="結果を確認">
+        <div class="step-title">利回り・CFを確認</div>
+        <p class="step-text">表面・実質利回り、月間CF、20年グラフが瞬時に表示されます</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <img class="step-img" src="../assets/photos/photo_17.jpg" alt="複数物件を比較">
+        <div class="step-title">複数物件を比較</div>
+        <p class="step-text">気になる物件を保存して実質利回りや月間CFを一覧で比較分析</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <img class="step-img" src="../assets/photos/photo_18.jpg" alt="データをエクスポート">
+        <div class="step-title">データをエクスポート</div>
+        <p class="step-text">結果をCSVで保存してExcelやGoogle Sheetsでさらに詳細分析</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOS GALLERY ROW -->
+<div style="display:grid;grid-template-columns:repeat(6,1fr);height:180px;overflow:hidden">
+  <img src="../assets/photos/photo_19.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
+  <img src="../assets/photos/photo_20.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
+  <img src="../assets/photos/photo_03.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
+  <img src="../assets/photos/photo_06.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
+  <img src="../assets/photos/photo_05.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
+  <img src="../assets/photos/photo_02.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
+</div>
+
+<!-- FAQ -->
+<section class="section faq-sec" id="faq">
+  <div class="sec-inner">
+    <span class="tag-blue" style="display:block;text-align:center;margin-bottom:10px">よくある質問</span>
+    <h2 class="sec-title">よくある質問</h2>
+    <p class="sec-sub">ご利用前の疑問にお答えします</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">表面利回りと実質利回りの違いは何ですか？</button>
+        <div class="faq-a">表面利回りは「年間家賃収入 ÷ 物件価格 × 100」で、空室・ローン・維持費は考慮しません。実質利回りはこれらを全て差し引いた年間CFを物件価格で割ったもので、実際の手取り収益に近い指標です。投資判断には実質利回りと月間CFを重視してください。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">このツールは無料ですか？登録は必要ですか？</button>
+        <div class="faq-a">完全無料でご利用いただけます。会員登録・メールアドレス入力・アプリのインストールは一切不要です。ブラウザからアクセスするだけで、すべての機能を利用できます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">計算結果は実際の投資判断に使えますか？</button>
+        <div class="faq-a">本ツールの計算結果は参考情報です。実際の投資判断には物件の立地・築年数・修繕リスク・市場動向を総合的に判断し、不動産会社やファイナンシャルプランナーなどの専門家にご相談されることをおすすめします。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">入力したデータは保存・共有されますか？</button>
+        <div class="faq-a">入力データはすべてブラウザ内（localStorage）にのみ保存され、外部サーバーには送信されません。個人情報の入力は不要ですので、安心してご利用いただけます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">月間CFがマイナスの物件は買うべきでないですか？</button>
+        <div class="faq-a">月間CFがマイナスとは毎月持ち出しが発生することを意味します。税制優遇や将来の資産価値上昇を見込む場合もありますが、基本的にはCFプラスの物件が安全です。マイナスの物件は詳細な税務分析と長期シミュレーションが必須です。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="cta-bottom">
+  <div class="cta-ov"></div>
+  <div class="cta-inner">
+    <h2>まず無料で、<br>たくさんの物件の投資先を見出しましょう</h2>
+    <p>登録不要・完全無料。今すぐ物件情報を入力して利回りを計算してみましょう。</p>
+    <a href="../" class="btn-cta-lg">無料で計算開始 →</a>
+    <div class="cta-note">
+      <span>登録不要</span>
+      <span>完全無料</span>
+      <span>30秒で計算</span>
+      <span>複数物件比較可能</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-links">
+    <a href="/">ホーム</a>
+    <a href="/about.html">運営者情報</a>
+    <a href="/privacy-policy.html">プライバシーポリシー</a>
+    <a href="/contact.html">お問い合わせ</a>
+    <a href="/terms.html">利用規約</a>
+  </div>
+  <p>&copy; 2024-2026 AppADayCreator</p>
+</footer>
+
+<!-- Cookie Banner -->
+<div id="lp-cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#fffbeb;color:#374151;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;z-index:9999;font-size:.85rem;box-shadow:0 -2px 12px rgba(0,0,0,.15);border-top:3px solid #f59e0b">
+  <div>🍪 当サイトはCookieおよびGoogle Analyticsを使用しています。<a href="/privacy-policy.html" style="color:#2563eb;text-decoration:underline">プライバシーポリシー</a>をご確認ください。</div>
+  <button onclick="(function(){document.getElementById('lp-cookie-banner').style.display='none';localStorage.setItem('cookie-consent','1');})()" style="background:#6b7280;color:#fff;border:none;padding:.4rem 1rem;border-radius:.375rem;font-size:.8rem;font-weight:600;cursor:pointer;white-space:nowrap;min-height:44px">同意して閉じる</button>
+</div>
+
+<script src="/assets/consent-mode.js"></script>
+<script>
+// Hero chart
+(function(){
+  var ctx = document.getElementById('hero-chart');
+  if(!ctx) return;
+  var years = Array.from({length:20},(_,i)=>i+1);
+  var cumCF = years.map(function(y){ return Math.round(y * 16.3 * 10) / 10; });
+  new Chart(ctx,{
+    type:'line',
+    data:{
+      labels: years.map(function(y){ return y+'年'; }),
+      datasets:[{
+        label:'累積CF（万円）',
+        data: cumCF,
+        borderColor:'rgba(255,255,255,0.9)',
+        backgroundColor:'rgba(255,255,255,0.1)',
+        fill:true,
+        tension:0.4,
+        pointRadius:2,
+        pointBackgroundColor:'#fff',
+        borderWidth:2
+      }]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.y+'万円';}}}},
+      scales:{
+        x:{ticks:{color:'rgba(255,255,255,0.65)',font:{size:10}},grid:{color:'rgba(255,255,255,0.1)'}},
+        y:{ticks:{color:'rgba(255,255,255,0.65)',font:{size:10},callback:function(v){return v+'万'}},grid:{color:'rgba(255,255,255,0.1)'}}
+      }
+    }
+  });
+})();
+
+// FAQ toggle
+function toggleFaq(btn){
+  var item = btn.parentElement;
+  item.classList.toggle('open');
+}
+
+// Cookie banner
+(function(){
+  if(localStorage.getItem('cookie-consent')){
+    var b=document.getElementById('lp-cookie-banner');
+    if(b) b.style.display='none';
+  }
+})();
+</script>
+</body>
+</html>
